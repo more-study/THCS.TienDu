@@ -28,7 +28,21 @@ header.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;bo
 .tools button.on{background:var(--amber);color:#1f2937}
 #pal{display:none;align-items:center;gap:5px;flex-wrap:wrap;color:#e2e8f0}
 body.editing #pal{display:flex}
-#pal button{width:22px;height:22px;padding:0;border:2px solid #fff;border-radius:50%}
+#pal #swatches{display:inline-flex;gap:5px;flex-wrap:wrap}
+#pal #swatches button{width:22px;height:22px;padding:0;border:2px solid #fff;border-radius:50%}
+#colPick{width:34px;height:26px;padding:0;border:2px solid #fff;border-radius:6px;background:none;cursor:pointer}
+#palEd{display:none;background:#fff;color:var(--ink);border-bottom:2px solid var(--amber)}
+#palEd.open{display:block}
+#palEd .inner{max-width:1180px;margin:0 auto;padding:10px 16px;font-size:13px}
+#palEd .hint{color:var(--mute);margin-left:6px}
+#palRows{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 14px;margin:8px 0}
+#palRows .prow{display:flex;align-items:center;gap:6px}
+#palRows input[type=color]{width:34px;height:28px;padding:0;border:1px solid var(--line);border-radius:6px;cursor:pointer;flex:none}
+#palRows input.pn{flex:1;min-width:0;font:inherit;padding:4px 8px;border:1px solid var(--line);border-radius:6px}
+#palRows code{font-size:12px;color:var(--mute);width:62px}
+#palRows .pd{border:0;background:none;color:#dc2626;cursor:pointer;font:inherit;font-size:12px}
+#palEd .acts{display:flex;gap:8px}
+#palEd .acts button{font:inherit;font-weight:600;border:1px solid var(--line);background:#f8fafc;border-radius:6px;padding:5px 11px;cursor:pointer}
 #msg{color:#fde68a;margin-left:auto}
 /* ---------- bố cục chung ---------- */
 main{max-width:1180px;margin:0 auto;padding:20px 16px 40px}
@@ -136,12 +150,17 @@ footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px}
 </div>
 <div class="tools"><div>
 <button type="button" id="bEdit">Bật chế độ sửa</button>
-<span id="pal"><span>Màu ô thời khóa biểu đang chọn:</span><button type="button" data-c="toan" style="background:#d6e8ff" title="Toán" aria-label="Màu Toán"></button><button type="button" data-c="van" style="background:#ffd9d9" title="Ngữ văn" aria-label="Màu Ngữ văn"></button><button type="button" data-c="anh" style="background:#ffe3c2" title="Tiếng Anh" aria-label="Màu Tiếng Anh"></button><button type="button" data-c="khtn" style="background:#d8f1d8" title="KHTN" aria-label="Màu KHTN"></button><button type="button" data-c="su" style="background:#ecdfca" title="LS&ĐL" aria-label="Màu LS&ĐL"></button><button type="button" data-c="hdtn" style="background:#e6d7f6" title="HĐTN" aria-label="Màu HĐTN"></button><button type="button" data-c="gdtc" style="background:#cdf0ea" title="GDTC" aria-label="Màu GDTC"></button><button type="button" data-c="nt" style="background:#fbd7e8" title="Nghệ thuật" aria-label="Màu Nghệ thuật"></button><button type="button" data-c="tin" style="background:#dbe0ff" title="Tin học" aria-label="Màu Tin học"></button><button type="button" data-c="cn" style="background:#e3e4dc" title="Công nghệ" aria-label="Màu Công nghệ"></button><button type="button" data-c="gd" style="background:#dde4ee" title="GDĐP / GDCD" aria-label="Màu GDĐP / GDCD"></button><button type="button" data-c="ht" style="background:#fff0a3" title="Học thêm" aria-label="Màu Học thêm"></button><button type="button" data-c="trong" style="background:#fafbfc" title="Ô trống" aria-label="Màu Ô trống"></button></span>
+<span id="pal"><span>Màu ô đang chọn:</span><span id="swatches"></span><input type="color" id="colPick" value="#ffd9d9" title="Chọn màu tùy ý" aria-label="Chọn màu tùy ý"><button type="button" id="bColAdd">Lưu màu này</button><button type="button" id="bColOff">Bỏ màu</button><button type="button" id="bPalEd">Sửa bảng màu</button></span>
 <button type="button" id="bSave">Lưu ngay</button>
 <button type="button" id="bDl">Tải file index.html đã sửa</button>
 <button type="button" id="bPrint">In trang này</button>
 <button type="button" id="bReset">Xóa bản đã lưu</button>
 <span id="msg"></span>
+</div></div>
+<div id="palEd"><div class="inner">
+<b>Bảng màu đã lưu</b> <span class="hint">Bấm ô màu để đổi mã màu, gõ để đổi tên. Các ô đã tô trước đó giữ nguyên màu cũ.</span>
+<div id="palRows"></div>
+<div class="acts"><button type="button" id="bPalNew">+ Thêm màu</button><button type="button" id="bPalReset">Về bảng màu mặc định</button><button type="button" id="bPalClose">Đóng</button></div>
 </div></div>
 </header>
 
@@ -329,6 +348,9 @@ var SEL='[data-e],.tkb td,.tkb th,td.nm',COLORS=['toan','van','anh','khtn','su',
 var last=null,editing=false,timer=null,msgEl=document.getElementById('msg');
 function say(t){msgEl.textContent=t;clearTimeout(say.t);say.t=setTimeout(function(){msgEl.textContent=''},2500)}
 
+var DEFAULT_PAL=[{n:'Toán',c:'#d6e8ff'},{n:'Ngữ văn',c:'#ffd9d9'},{n:'Tiếng Anh',c:'#ffe3c2'},{n:'KHTN',c:'#d8f1d8'},{n:'LS&ĐL',c:'#ecdfca'},{n:'HĐTN',c:'#e6d7f6'},{n:'GDTC',c:'#cdf0ea'},{n:'Nghệ thuật',c:'#fbd7e8'},{n:'Tin học',c:'#dbe0ff'},{n:'Công nghệ',c:'#e3e4dc'},{n:'GDĐP / GDCD',c:'#dde4ee'},{n:'Học thêm',c:'#fff0a3'},{n:'Ô trống',c:'#fafbfc'}];
+var palette=DEFAULT_PAL.map(function(p){return{n:p.n,c:p.c}});
+try{if(de.dataset.palette){var pp=JSON.parse(de.dataset.palette);if(pp&&pp.length)palette=pp}}catch(e){}
 /* ----- nội dung có thể sửa ----- */
 function applyEditable(){
   root.querySelectorAll(SEL).forEach(function(el){if(editing)el.setAttribute('contenteditable','true');else el.removeAttribute('contenteditable')});
@@ -336,6 +358,7 @@ function applyEditable(){
 }
 function setEdit(on){
   editing=on;document.body.classList.toggle('editing',on);applyEditable();
+  if(!on)document.getElementById('palEd').classList.remove('open');
   var b=document.getElementById('bEdit');b.classList.toggle('on',on);b.textContent=on?'Tắt chế độ sửa':'Bật chế độ sửa';
 }
 function content(){
@@ -349,10 +372,10 @@ function content(){
 }
 function saveLocal(quiet){
   scheduleRemote();
-  try{localStorage.setItem(KEY,JSON.stringify({base:de.dataset.version,html:content()}));if(!quiet)say('Đã lưu trong trình duyệt');return true}
+  try{localStorage.setItem(KEY,JSON.stringify({base:de.dataset.version,html:content(),palette:palette}));if(!quiet)say('Đã lưu trong trình duyệt');return true}
   catch(e){if(!quiet)say('Trình duyệt không cho lưu, hãy dùng nút Tải file');return false}
 }
-var restored=false;try{var st=JSON.parse(localStorage.getItem(KEY)||'null');if(st&&st.base===de.dataset.version&&st.html){root.innerHTML=st.html;restored=true}}catch(e){}
+var restored=false;try{var st=JSON.parse(localStorage.getItem(KEY)||'null');if(st&&st.base===de.dataset.version&&st.html){root.innerHTML=st.html;restored=true;if(st.palette&&st.palette.length)palette=st.palette}}catch(e){}
 
 /* ----- điều hướng ----- */
 var pages=['home','tkb','diem','kh'];
@@ -407,7 +430,7 @@ root.addEventListener('change',function(e){
 
 /* ----- đồng bộ Google Sheet ----- */
 var remoteTimer=null,lastUpdated='',applying=false;
-function payload(){return JSON.stringify({schema:de.dataset.schema,html:content()})}
+function payload(){return JSON.stringify({schema:de.dataset.schema,html:content(),palette:palette})}
 function pushRemote(){
   if(!SHEET_URL)return;
   say('Đang lưu lên Google Sheet...');
@@ -426,15 +449,18 @@ function pullRemote(){
       if(String(j.updated)===lastUpdated)return;
       var d;try{d=JSON.parse(j.data)}catch(e){return}
       lastUpdated=String(j.updated);
-      if(!d||d.schema!==de.dataset.schema||!d.html||d.html===content())return;
+      if(!d||d.schema!==de.dataset.schema||!d.html)return;
+      var palChanged=d.palette&&d.palette.length&&JSON.stringify(d.palette)!==JSON.stringify(palette);
+      if(d.html===content()&&!palChanged)return;
       applying=true;
+      if(palChanged){palette=d.palette;renderPal()}
       root.innerHTML=d.html;applyEditable();calcAll();show(true);saveLocal(true);
       applying=false;say('Đã cập nhật từ Google Sheet');
     }).catch(function(){applying=false});
 }
 
 /* ----- công cụ ----- */
-setEdit(false);calcAll();show();pullRemote();
+renderPal();setEdit(false);calcAll();show();pullRemote();
 setInterval(function(){var a=document.activeElement;if(editing||(a&&(a.isContentEditable||a.id==='todoIn')))return;pullRemote()},30000);
 document.getElementById('bEdit').addEventListener('click',function(){setEdit(!editing)});
 document.getElementById('bSave').addEventListener('click',function(){saveLocal(false);if(SHEET_URL){clearTimeout(remoteTimer);pushRemote()}});
@@ -447,7 +473,7 @@ document.getElementById('bReset').addEventListener('click',function(){
 });
 document.getElementById('bDl').addEventListener('click',function(){
   var ver='v'+Date.now(),clone=de.cloneNode(true);
-  clone.setAttribute('data-version',ver);
+  clone.setAttribute('data-version',ver);clone.setAttribute('data-palette',JSON.stringify(palette));
   clone.querySelector('#content').innerHTML=content();
   clone.querySelector('body').className='';
   clone.querySelector('#msg').textContent='';
@@ -458,7 +484,7 @@ document.getElementById('bDl').addEventListener('click',function(){
   de.dataset.version=ver;saveLocal(true);
   say('Đã tải file. Dùng file này thay cho index.html cũ');
 });
-root.addEventListener('focusin',function(e){var t=e.target.closest&&e.target.closest('.tkb td');if(t)last=t});
+root.addEventListener('focusin',function(e){var t=e.target.closest&&e.target.closest('td,th');if(t)last=t});
 root.addEventListener('input',function(e){
   if(e.target.closest&&e.target.closest('td.sc'))calcAll();
   clearTimeout(timer);timer=setTimeout(function(){saveLocal(true);if(!SHEET_URL)say('Đã tự lưu')},600);
@@ -468,12 +494,47 @@ root.addEventListener('paste',function(e){
   e.preventDefault();
   document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text/plain'));
 });
-document.getElementById('pal').addEventListener('mousedown',function(e){e.preventDefault()});
-document.getElementById('pal').addEventListener('click',function(e){
-  var b=e.target.closest('button[data-c]');
-  if(!b||!last||!root.contains(last))return;
-  COLORS.forEach(function(c){last.classList.remove(c)});
-  last.classList.add(b.dataset.c);saveLocal(true);say('Đã đổi màu ô');
+/* ----- màu ô & bảng màu ----- */
+function renderPal(){
+  var sw=document.getElementById('swatches'),ed=document.getElementById('palRows');
+  sw.innerHTML='';ed.innerHTML='';
+  palette.forEach(function(p,i){
+    var b=document.createElement('button');
+    b.type='button';b.dataset.i=i;b.style.background=p.c;b.title=p.n+' '+p.c;b.setAttribute('aria-label','Màu '+p.n);
+    sw.appendChild(b);
+    var r=document.createElement('div');r.className='prow';
+    r.innerHTML='<input type="color" aria-label="Mã màu"><input type="text" class="pn" maxlength="30" aria-label="Tên màu"><code></code><button type="button" class="pd">Xóa</button>';
+    var col=r.querySelector('input[type=color]'),nm=r.querySelector('.pn'),code=r.querySelector('code');
+    col.value=p.c;nm.value=p.n;code.textContent=p.c;
+    col.addEventListener('input',function(){p.c=col.value;code.textContent=p.c;b.style.background=p.c;b.title=p.n+' '+p.c});
+    col.addEventListener('change',function(){saveLocal(true);say('Đã lưu bảng màu')});
+    nm.addEventListener('input',function(){p.n=nm.value;b.title=p.n+' '+p.c;clearTimeout(nm.t);nm.t=setTimeout(function(){saveLocal(true)},600)});
+    r.querySelector('.pd').addEventListener('click',function(){palette.splice(i,1);renderPal();saveLocal(true);say('Đã xóa màu')});
+    ed.appendChild(r);
+  });
+}
+function cellOk(){if(!last||!root.contains(last)){say('Hãy bấm chọn một ô trước');return false}return true}
+function paint(hex){last.style.backgroundColor=hex}
+document.getElementById('pal').addEventListener('mousedown',function(e){if(!e.target.closest('input'))e.preventDefault()});
+document.getElementById('swatches').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-i]');if(!b||!cellOk())return;
+  paint(palette[+b.dataset.i].c);document.getElementById('colPick').value=palette[+b.dataset.i].c;saveLocal(true);say('Đã đổi màu ô');
+});
+var pick=document.getElementById('colPick');
+pick.addEventListener('input',function(){if(last&&root.contains(last))paint(pick.value)});
+pick.addEventListener('change',function(){if(!cellOk())return;paint(pick.value);saveLocal(true);say('Đã đổi màu ô')});
+document.getElementById('bColAdd').addEventListener('click',function(){
+  palette.push({n:'Màu mới',c:pick.value});renderPal();saveLocal(true);say('Đã lưu màu '+pick.value+' vào bảng màu');
+});
+document.getElementById('bColOff').addEventListener('click',function(){
+  if(!cellOk())return;last.style.removeProperty('background-color');if(!last.getAttribute('style'))last.removeAttribute('style');saveLocal(true);say('Đã bỏ màu tùy chọn của ô');
+});
+document.getElementById('bPalEd').addEventListener('click',function(){document.getElementById('palEd').classList.toggle('open')});
+document.getElementById('bPalClose').addEventListener('click',function(){document.getElementById('palEd').classList.remove('open')});
+document.getElementById('bPalNew').addEventListener('click',function(){palette.push({n:'Màu mới',c:'#ffffff'});renderPal();saveLocal(true)});
+document.getElementById('bPalReset').addEventListener('click',function(){
+  if(!confirm('Đưa bảng màu về 13 màu mặc định? Các ô đã tô màu không bị ảnh hưởng.'))return;
+  palette=DEFAULT_PAL.map(function(p){return{n:p.n,c:p.c}});renderPal();saveLocal(true);
 });
 document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveLocal(false)}});
 })();
