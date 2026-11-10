@@ -1,16 +1,62 @@
 <!doctype html>
-<html lang="vi">
+<html lang="vi" data-version="v1" data-schema="1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thời khóa biểu lớp 6B</title>
+<title>THCS Tiên Du – Nguyễn Doãn Việt Anh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-
-body{margin:0}
-table.tkb{border-collapse:separate;border-spacing:4px;width:100%;table-layout:fixed;font-family:'Be Vietnam Pro',system-ui,sans-serif;color:#1f2937}
-table.tkb th,table.tkb td{border-radius:8px;text-align:center;vertical-align:middle;padding:4px 6px;line-height:1.25}
+:root{--navy:#1e3a5f;--navy2:#274b7a;--amber:#f59e0b;--ink:#1f2937;--mute:#64748b;--line:#d9e0ea;--bg:#f2f5f9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif;line-height:1.5}
+/* ---------- thanh trên ---------- */
+header.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;box-shadow:0 2px 8px #0003}
+.nav{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.brand{display:flex;flex-direction:column;text-decoration:none;color:#fff;line-height:1.2;margin-right:auto}
+.brand b{font-size:17px;font-weight:800;letter-spacing:.3px}
+.brand span{font-size:12px;color:#cbd5e1}
+.nav ul{display:flex;flex-wrap:wrap;gap:4px;list-style:none;margin:0;padding:0}
+.nav ul a{display:block;padding:8px 14px;border-radius:8px;color:#e2e8f0;text-decoration:none;font-weight:600;font-size:14px}
+.nav ul a:hover{background:#ffffff1f}
+.nav ul a.cur{background:var(--amber);color:#1f2937}
+.tools{background:var(--navy2);font-size:12.5px}
+.tools div{max-width:1180px;margin:0 auto;padding:6px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tools button{font:inherit;font-weight:600;border:0;border-radius:6px;padding:5px 11px;cursor:pointer;background:#fff;color:var(--navy)}
+.tools button:hover{background:#e2e8f0}
+.tools button.on{background:var(--amber);color:#1f2937}
+#pal{display:none;align-items:center;gap:5px;flex-wrap:wrap;color:#e2e8f0}
+body.editing #pal{display:flex}
+#pal button{width:22px;height:22px;padding:0;border:2px solid #fff;border-radius:50%}
+#msg{color:#fde68a;margin-left:auto}
+/* ---------- bố cục chung ---------- */
+main{max-width:1180px;margin:0 auto;padding:20px 16px 40px}
+section.pg{display:none}
+section.pg.active{display:block}
+h2.title{margin:4px 0 4px;font-size:26px;font-weight:800;color:var(--navy)}
+p.sub{margin:0 0 16px;color:var(--mute);font-size:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{margin:0 0 10px;font-size:17px;color:var(--navy)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.scroll{overflow-x:auto}
+/* ---------- trang chủ ---------- */
+.hero{background:var(--navy);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:18px}
+.hero small{display:block;letter-spacing:2px;font-weight:600;color:#fcd34d;font-size:12px;text-transform:uppercase}
+.hero h1{margin:6px 0 4px;font-size:34px;font-weight:800;line-height:1.2}
+.hero p{margin:0;color:#dbe4ef}
+.info{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.info span{background:#ffffff1a;border-radius:99px;padding:5px 14px;font-size:13.5px;font-weight:500}
+.info b{font-weight:700}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.menu a{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .12s,box-shadow .12s}
+.menu a:hover{transform:translateY(-3px);box-shadow:0 8px 20px #1e3a5f22}
+.menu i{display:inline-block;font-style:normal;font-weight:800;font-size:13px;color:#fff;background:var(--amber);border-radius:8px;padding:2px 10px;margin-bottom:10px}
+.menu h3{margin:0 0 4px;font-size:19px;color:var(--navy)}
+.menu p{margin:0;color:var(--mute);font-size:14px}
+/* ---------- thời khóa biểu ---------- */
+table.tkb{border-collapse:separate;border-spacing:4px;width:100%;min-width:900px;table-layout:fixed;color:#1f2937}
+table.tkb th,table.tkb td{border-radius:8px;text-align:center;vertical-align:middle;padding:4px 6px;line-height:1.25;height:62px}
 table.tkb th{background:#1e3a5f;color:#fff;font-size:14px;font-weight:700;height:34px}
 table.tkb td.sess{width:34px;padding:0;font-weight:800;font-size:13px;letter-spacing:3px;color:#fff}
 table.tkb td.sess span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto}
@@ -20,38 +66,111 @@ table.tkb td.tiet{background:#eef2f7;font-weight:700;font-size:13px}
 table.tkb td.tiet small{display:block;font-weight:500;font-size:11.5px;color:#475569;margin-top:2px}
 table.tkb td.m b{display:block;font-size:13px;font-weight:700}
 table.tkb td.m span{display:block;font-size:11.5px;margin-top:2px;color:#374151}
-td.toan{background:#d6e8ff}
-td.van{background:#ffd9d9}
-td.anh{background:#ffe3c2}
-td.khtn{background:#d8f1d8}
-td.su{background:#ecdfca}
-td.hdtn{background:#e6d7f6}
-td.gdtc{background:#cdf0ea}
-td.nt{background:#fbd7e8}
-td.tin{background:#dbe0ff}
-td.cn{background:#e3e4dc}
-td.gd{background:#dde4ee}
+td.toan{background:#d6e8ff}td.van{background:#ffd9d9}td.anh{background:#ffe3c2}td.khtn{background:#d8f1d8}td.su{background:#ecdfca}
+td.hdtn{background:#e6d7f6}td.gdtc{background:#cdf0ea}td.nt{background:#fbd7e8}td.tin{background:#dbe0ff}td.cn{background:#e3e4dc}td.gd{background:#dde4ee}
 td.ht{background:#fff0a3;border:2px dashed #b45309}
 td.ht i{display:inline-block;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.5px;background:#b45309;color:#fff;border-radius:99px;padding:1px 8px;margin-bottom:4px}
 table.tkb td.nghi{background:#f1f3f5;color:#9aa3ad;font-size:13px;font-weight:600}
 table.tkb td.nghi span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto;letter-spacing:4px}
 table.tkb td.trong{background:#fafbfc;color:#c3c9d0;font-size:13px}
-
-.page{overflow-x:auto}
-@page{size:A4 landscape;margin:0}
-@media print{html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.note{font-size:12.5px;color:var(--mute);margin:10px 4px 0}
+/* ---------- điểm thi ---------- */
+.seg{display:inline-flex;background:#e2e8f0;border-radius:10px;padding:3px;margin-bottom:14px}
+.seg button{font:inherit;font-weight:700;font-size:14px;border:0;background:none;padding:7px 18px;border-radius:8px;cursor:pointer;color:#475569}
+.seg button.on{background:var(--navy);color:#fff}
+.hk{display:none}
+.hk.active{display:block}
+table.st{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+table.st th{background:var(--navy);color:#fff;padding:9px 8px;font-weight:700;text-align:center;border:1px solid #fff3}
+table.st td{border:1px solid var(--line);padding:8px;text-align:center;background:#fff}
+table.st td.nm{text-align:left;font-weight:600;background:#f8fafc}
+table.st td.sc{color:#111}
+table.st td.avg{font-weight:800;color:var(--navy);background:#eef4ff}
+table.st tr.sum td{background:#fff7e0;font-weight:800;border-top:2px solid var(--amber)}
+table.st td.sc:empty::before{content:"–";color:#c0c8d2}
+/* ---------- kế hoạch ---------- */
+.plan ul.goals{margin:0;padding-left:20px}
+.plan ul.goals li{margin:4px 0}
+table.pl{border-collapse:collapse;width:100%;font-size:14px}
+table.pl th{text-align:left;background:#eef2f7;padding:8px 10px;border:1px solid var(--line);color:var(--navy)}
+table.pl td{padding:8px 10px;border:1px solid var(--line);vertical-align:top}
+table.pl tr.extra td:first-child{font-weight:700}
+.tag{display:inline-block;background:#fff0a3;border:1.5px dashed #b45309;border-radius:99px;padding:0 9px;font-size:11px;font-weight:800;color:#92400e}
+ul.todo{list-style:none;margin:0 0 10px;padding:0}
+ul.todo li{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line)}
+ul.todo li input[type=checkbox]{width:18px;height:18px;accent-color:var(--navy);flex:none}
+ul.todo li span{flex:1}
+ul.todo li input:checked+span{text-decoration:line-through;color:#94a3b8}
+ul.todo li button{border:0;background:none;color:#94a3b8;font-size:18px;cursor:pointer;line-height:1}
+ul.todo li button:hover{color:#dc2626}
+.add{display:flex;gap:8px}
+.add input{flex:1;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
+.add button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:8px 16px;background:var(--navy);color:#fff;cursor:pointer}
+/* ---------- chế độ sửa ---------- */
+body.editing [data-e]:hover,body.editing .tkb td:hover,body.editing .tkb th:hover,body.editing td.nm:hover{outline:2px dotted var(--amber);outline-offset:-2px;cursor:text}
+[contenteditable]:focus{outline:2px solid #2563eb !important;outline-offset:-2px}
+td.sc[contenteditable]{cursor:text}
+footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px}
+@media (max-width:640px){.hero h1{font-size:26px}.hero{padding:24px 18px}h2.title{font-size:22px}}
+@media print{
+  header.top,footer,.seg,.add,ul.todo button{display:none}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  main{padding:0}
+  .card{border:0;padding:0}
+  .scroll{overflow:visible}
+  table.tkb{min-width:0}
+  section.pg.active .hk{display:block}
+  @page{size:A4 landscape;margin:10mm}
+}
 </style>
 </head>
 <body>
-<div class="page">
-<div style="width: 1123px; height: 794px; box-sizing: border-box; padding: 22px 24px 18px 24px; background: #ffffff; display: flex; flex-direction: column; gap: 8px; font-family: 'Be Vietnam Pro', system-ui, sans-serif">
-<div style="display: flex; align-items: flex-end; justify-content: space-between; padding: 0 4px">
-<div style="display: flex; flex-direction: column; gap: 2px">
-<h1 style="margin: 0; font-size: 28px; font-weight: 800; color: #1e3a5f; letter-spacing: 0.5px">THỜI KHÓA BIỂU LỚP 6B</h1>
-<div style="font-size: 13px; color: #475569">Năm học 2026–2027 · Giờ học theo hiệu lệnh trống áp dụng từ 19/10/2026</div>
+<header class="top">
+<div class="nav">
+<a class="brand" href="#home"><b>THCS TIÊN DU</b><span>Học sinh: Nguyễn Doãn Việt Anh · Lớp 6B</span></a>
+<ul>
+<li><a href="#tkb" data-p="tkb">Thời khóa biểu</a></li>
+<li><a href="#diem" data-p="diem">Điểm thi</a></li>
+<li><a href="#kh" data-p="kh">Kế hoạch học tập</a></li>
+</ul>
 </div>
-<div style="font-size: 12px; color: #475569; text-align: right; line-height: 1.5">Truy bài: 7:05 · Sáng: 7:15 – 11:40 · Chiều: 14:00 – 16:35</div>
+<div class="tools"><div>
+<button type="button" id="bEdit">Bật chế độ sửa</button>
+<span id="pal"><span>Màu ô thời khóa biểu đang chọn:</span><button type="button" data-c="toan" style="background:#d6e8ff" title="Toán" aria-label="Màu Toán"></button><button type="button" data-c="van" style="background:#ffd9d9" title="Ngữ văn" aria-label="Màu Ngữ văn"></button><button type="button" data-c="anh" style="background:#ffe3c2" title="Tiếng Anh" aria-label="Màu Tiếng Anh"></button><button type="button" data-c="khtn" style="background:#d8f1d8" title="KHTN" aria-label="Màu KHTN"></button><button type="button" data-c="su" style="background:#ecdfca" title="LS&ĐL" aria-label="Màu LS&ĐL"></button><button type="button" data-c="hdtn" style="background:#e6d7f6" title="HĐTN" aria-label="Màu HĐTN"></button><button type="button" data-c="gdtc" style="background:#cdf0ea" title="GDTC" aria-label="Màu GDTC"></button><button type="button" data-c="nt" style="background:#fbd7e8" title="Nghệ thuật" aria-label="Màu Nghệ thuật"></button><button type="button" data-c="tin" style="background:#dbe0ff" title="Tin học" aria-label="Màu Tin học"></button><button type="button" data-c="cn" style="background:#e3e4dc" title="Công nghệ" aria-label="Màu Công nghệ"></button><button type="button" data-c="gd" style="background:#dde4ee" title="GDĐP / GDCD" aria-label="Màu GDĐP / GDCD"></button><button type="button" data-c="ht" style="background:#fff0a3" title="Học thêm" aria-label="Màu Học thêm"></button><button type="button" data-c="trong" style="background:#fafbfc" title="Ô trống" aria-label="Màu Ô trống"></button></span>
+<button type="button" id="bSave">Lưu ngay</button>
+<button type="button" id="bDl">Tải file index.html đã sửa</button>
+<button type="button" id="bPrint">In trang này</button>
+<button type="button" id="bReset">Xóa bản đã lưu</button>
+<span id="msg"></span>
+</div></div>
+</header>
+
+<main id="content">
+
+<!-- ================= TRANG CHỦ ================= -->
+<section class="pg" id="home">
+<div class="hero">
+<small>Trường Trung học cơ sở</small>
+<h1 data-e>THCS Tiên Du</h1>
+<p data-e>Góc học tập của em</p>
+<div class="info">
+<span data-e><b>Học sinh:</b> Nguyễn Doãn Việt Anh</span>
+<span data-e><b>Lớp:</b> 6B</span>
+<span data-e><b>Năm học:</b> 2026–2027</span>
 </div>
+</div>
+<nav class="menu">
+<a href="#tkb"><i>1</i><h3>Thời khóa biểu</h3><p>Lịch học chính khóa, giờ vào lớp, giờ tan và lịch học thêm.</p></a>
+<a href="#diem"><i>2</i><h3>Điểm thi</h3><p>Bảng điểm từng môn theo học kỳ, tự tính điểm trung bình.</p></a>
+<a href="#kh"><i>3</i><h3>Kế hoạch học tập</h3><p>Mục tiêu, lịch học thêm và danh sách việc cần làm.</p></a>
+</nav>
+</section>
+
+<!-- ================= THỜI KHÓA BIỂU ================= -->
+<section class="pg" id="tkb">
+<h2 class="title" data-e>Thời khóa biểu lớp 6B</h2>
+<p class="sub" data-e>Năm học 2026–2027 · Giờ học theo hiệu lệnh trống áp dụng từ 19/10/2026 · Truy bài 7:05</p>
+<div class="card"><div class="scroll">
 <table class="tkb">
 <colgroup>
 <col style="width: 34px">
@@ -133,12 +252,231 @@ table.tkb td.trong{background:#fafbfc;color:#c3c9d0;font-size:13px}
 <td class="trong">—</td>
 </tr>
 </table>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 0 4px; font-size: 11.5px; color: #64748b">
-<div>Ô viền nét đứt màu vàng là lịch học thêm.</div>
-<div>Tiết 5 sáng và tiết 4 chiều không có lịch học.</div>
 </div>
+<p class="note" data-e>Ô viền nét đứt màu vàng là lịch học thêm. Tiết 5 sáng và tiết 4 chiều không có lịch học.</p>
 </div>
+</section>
 
+<!-- ================= ĐIỂM THI ================= -->
+<section class="pg" id="diem">
+<h2 class="title">Điểm thi</h2>
+<p class="sub">Bấm vào ô để nhập điểm (thang 10, dùng dấu chấm hoặc phẩy). Điểm trung bình môn tự tính khi đã có điểm giữa kỳ và cuối kỳ.</p>
+<div class="seg" role="tablist"><button type="button" class="on" data-hk="hk1">Học kỳ I</button><button type="button" data-hk="hk2">Học kỳ II</button></div>
+<div class="hk active" id="hk1"><div class="card scroll"><table class="st">
+<tr><th style="text-align:left">Môn học</th><th>TX 1</th><th>TX 2</th><th>TX 3</th><th>TX 4</th><th>Giữa kỳ</th><th>Cuối kỳ</th><th>ĐTB môn</th></tr>
+<tr class="sub"><td class="nm">Toán</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Ngữ văn</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tiếng Anh</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">KHTN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">LS&amp;ĐL</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDCD</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Công nghệ</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tin học</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDTC</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Nghệ thuật</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">HĐTN, HN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDĐP</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr>
+<tr class="sum"><td class="nm" colspan="7" style="text-align:right">ĐTB các môn (tạm tính)</td><td class="overall">–</td></tr>
+</table></div></div>
+<div class="hk" id="hk2"><div class="card scroll"><table class="st">
+<tr><th style="text-align:left">Môn học</th><th>TX 1</th><th>TX 2</th><th>TX 3</th><th>TX 4</th><th>Giữa kỳ</th><th>Cuối kỳ</th><th>ĐTB môn</th></tr>
+<tr class="sub"><td class="nm">Toán</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Ngữ văn</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tiếng Anh</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">KHTN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">LS&amp;ĐL</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDCD</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Công nghệ</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tin học</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDTC</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Nghệ thuật</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">HĐTN, HN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDĐP</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr>
+<tr class="sum"><td class="nm" colspan="7" style="text-align:right">ĐTB các môn (tạm tính)</td><td class="overall">–</td></tr>
+</table></div></div>
+<p class="note">Cách tính: ĐTB môn = (tổng điểm thường xuyên + 2 × điểm giữa kỳ + 3 × điểm cuối kỳ) ÷ (số điểm thường xuyên + 5). Đây chỉ là số tạm tính để tham khảo, điểm chính thức theo sổ điểm của nhà trường.</p>
+</section>
+
+<!-- ================= KẾ HOẠCH HỌC TẬP ================= -->
+<section class="pg plan" id="kh">
+<h2 class="title">Kế hoạch học tập</h2>
+<p class="sub">Mục tiêu và việc cần làm của Nguyễn Doãn Việt Anh. Bật chế độ sửa để ghi vào các ô.</p>
+<div class="grid2">
+<div class="card">
+<h3>Mục tiêu học kỳ</h3>
+<ul class="goals">
+<li data-e>Mục tiêu 1: nhập mục tiêu của em</li>
+<li data-e>Mục tiêu 2: nhập mục tiêu của em</li>
+<li data-e>Mục tiêu 3: nhập mục tiêu của em</li>
+</ul>
 </div>
+<div class="card">
+<h3>Việc cần làm</h3>
+<ul class="todo" id="todo"></ul>
+<div class="add"><input id="todoIn" type="text" placeholder="Thêm việc cần làm..." aria-label="Việc cần làm mới"><button type="button" id="todoAdd">Thêm</button></div>
+</div>
+</div>
+<div class="card" style="margin-top:16px">
+<h3>Lịch học thêm hằng tuần</h3>
+<div class="scroll"><table class="pl">
+<tr><th>Thứ</th><th>Môn</th><th>Giờ học</th><th>Ghi chú</th></tr>
+<tr class="extra"><td data-e>Thứ Hai</td><td data-e>Toán</td><td data-e>14:00 – 16:00</td><td data-e>Ăn trưa nhà thầy Dũng</td></tr>
+<tr class="extra"><td data-e>Thứ Ba</td><td data-e>Tiếng Anh</td><td data-e>17:00 – 19:00</td><td data-e></td></tr>
+<tr class="extra"><td data-e>Thứ Tư</td><td data-e>Tiếng Anh</td><td data-e>17:00 – 19:00</td><td data-e></td></tr>
+<tr class="extra"><td data-e>Thứ Năm</td><td data-e>Ngữ văn</td><td data-e>14:00 – 17:10</td><td data-e>Ăn trưa nhà thầy Dũng</td></tr>
+</table></div>
+</div>
+<div class="card" style="margin-top:16px">
+<h3>Mục tiêu điểm theo môn</h3>
+<div class="scroll"><table class="pl">
+<tr><th>Môn</th><th>Điểm hiện tại</th><th>Điểm mục tiêu</th><th>Cách thực hiện</th></tr>
+<tr><td data-e>Toán</td><td data-e></td><td data-e></td><td data-e></td></tr>
+<tr><td data-e>Ngữ văn</td><td data-e></td><td data-e></td><td data-e></td></tr>
+<tr><td data-e>Tiếng Anh</td><td data-e></td><td data-e></td><td data-e></td></tr>
+<tr><td data-e>KHTN</td><td data-e></td><td data-e></td><td data-e></td></tr>
+<tr><td data-e>LS&amp;ĐL</td><td data-e></td><td data-e></td><td data-e></td></tr>
+</table></div>
+</div>
+</section>
+
+</main>
+<footer>Trường THCS Tiên Du · Học sinh Nguyễn Doãn Việt Anh · Lớp 6B</footer>
+
+<script>
+(function(){
+/* Dán địa chỉ Web app của Google Apps Script (kết thúc bằng /exec) vào giữa hai dấu nháy: */
+var SHEET_URL='';
+var KEY='thcs-tiendu-saved',root=document.getElementById('content'),de=document.documentElement;
+var SEL='[data-e],.tkb td,.tkb th,td.nm',COLORS=['toan','van','anh','khtn','su','hdtn','gdtc','nt','tin','cn','gd','ht','trong'];
+var last=null,editing=false,timer=null,msgEl=document.getElementById('msg');
+function say(t){msgEl.textContent=t;clearTimeout(say.t);say.t=setTimeout(function(){msgEl.textContent=''},2500)}
+
+/* ----- nội dung có thể sửa ----- */
+function applyEditable(){
+  root.querySelectorAll(SEL).forEach(function(el){if(editing)el.setAttribute('contenteditable','true');else el.removeAttribute('contenteditable')});
+  root.querySelectorAll('td.sc').forEach(function(el){el.setAttribute('contenteditable','true')});
+}
+function setEdit(on){
+  editing=on;document.body.classList.toggle('editing',on);applyEditable();
+  var b=document.getElementById('bEdit');b.classList.toggle('on',on);b.textContent=on?'Tắt chế độ sửa':'Bật chế độ sửa';
+}
+function content(){
+  var c=root.cloneNode(true);
+  c.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable')});
+  c.querySelectorAll('section.pg').forEach(function(s){s.classList.remove('active')});
+  c.querySelectorAll('.hk').forEach(function(s){s.classList.remove('active')});
+  var h1=c.querySelector('.hk');if(h1)h1.classList.add('active');
+  c.querySelectorAll('.seg button').forEach(function(b,i){b.classList.toggle('on',i===0)});
+  return c.innerHTML;
+}
+function saveLocal(quiet){
+  scheduleRemote();
+  try{localStorage.setItem(KEY,JSON.stringify({base:de.dataset.version,html:content()}));if(!quiet)say('Đã lưu trong trình duyệt');return true}
+  catch(e){if(!quiet)say('Trình duyệt không cho lưu, hãy dùng nút Tải file');return false}
+}
+var restored=false;try{var st=JSON.parse(localStorage.getItem(KEY)||'null');if(st&&st.base===de.dataset.version&&st.html){root.innerHTML=st.html;restored=true}}catch(e){}
+
+/* ----- điều hướng ----- */
+var pages=['home','tkb','diem','kh'];
+function show(keep){
+  var id=(location.hash||'#home').slice(1);if(pages.indexOf(id)<0)id='home';
+  root.querySelectorAll('section.pg').forEach(function(s){s.classList.toggle('active',s.id===id)});
+  document.querySelectorAll('.nav ul a').forEach(function(a){a.classList.toggle('cur',a.dataset.p===id)});
+  if(!keep)window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',function(){show()});
+
+/* ----- điểm thi ----- */
+function num(el){if(!el)return null;var t=el.textContent.trim().replace(',','.');if(t==='')return null;var v=parseFloat(t);return(isNaN(v)||v<0||v>10)?null:v}
+function round1(v){return Math.round(v*10+1e-9)/10}
+function calcAll(){
+  root.querySelectorAll('.hk').forEach(function(hk){
+    var tot=0,n=0;
+    hk.querySelectorAll('tr.sub').forEach(function(r){
+      var tx=[].slice.call(r.querySelectorAll('.tx')).map(num).filter(function(v){return v!==null});
+      var gk=num(r.querySelector('.gk')),ck=num(r.querySelector('.ck')),out=r.querySelector('.avg');
+      if(!tx.length||gk===null||ck===null){out.textContent='–';return}
+      var v=(tx.reduce(function(a,b){return a+b},0)+2*gk+3*ck)/(tx.length+5);
+      out.textContent=round1(v).toFixed(1);tot+=round1(v);n++;
+    });
+    var o=hk.querySelector('.overall');
+    if(o)o.textContent=n?round1(tot/n).toFixed(1):'–';
+  });
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.seg button');if(!b)return;
+  document.querySelectorAll('.seg button').forEach(function(x){x.classList.toggle('on',x===b)});
+  root.querySelectorAll('.hk').forEach(function(h){h.classList.toggle('active',h.id===b.dataset.hk)});
+});
+
+/* ----- việc cần làm ----- */
+function todoEl(){return document.getElementById('todo')}
+function addTodo(text){
+  var li=document.createElement('li');
+  li.innerHTML='<input type="checkbox" aria-label="Hoàn thành"><span></span><button type="button" aria-label="Xóa việc này">×</button>';
+  li.querySelector('span').textContent=text;todoEl().appendChild(li);
+}
+if(!restored&&!todoEl().children.length){['Làm bài tập về nhà','Ôn lại bài các môn học trong ngày','Chuẩn bị sách vở cho ngày mai'].forEach(addTodo)}
+root.addEventListener('click',function(e){
+  if(e.target.id==='todoAdd'){var inp=document.getElementById('todoIn'),v=inp.value.trim();if(!v)return;addTodo(v);inp.value='';saveLocal(true);say('Đã thêm');return}
+  var b=e.target.closest('ul.todo button');if(b){b.parentNode.remove();saveLocal(true)}
+});
+root.addEventListener('keydown',function(e){if(e.target.id==='todoIn'&&e.key==='Enter'){e.preventDefault();document.getElementById('todoAdd').click()}});
+root.addEventListener('change',function(e){
+  var c=e.target;
+  if(c.type==='checkbox'){if(c.checked)c.setAttribute('checked','');else c.removeAttribute('checked');saveLocal(true)}
+});
+
+/* ----- đồng bộ Google Sheet ----- */
+var remoteTimer=null,lastUpdated='',applying=false;
+function payload(){return JSON.stringify({schema:de.dataset.schema,html:content()})}
+function pushRemote(){
+  if(!SHEET_URL)return;
+  say('Đang lưu lên Google Sheet...');
+  fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({data:payload()})})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j&&j.ok){lastUpdated=String(j.updated||'');say('Đã lưu lên Google Sheet')}else say('Lưu Google Sheet chưa thành công')})
+    .catch(function(){say('Không kết nối được Google Sheet')});
+}
+function scheduleRemote(){if(!SHEET_URL||applying)return;clearTimeout(remoteTimer);remoteTimer=setTimeout(pushRemote,800)}
+function pullRemote(){
+  if(!SHEET_URL)return;
+  fetch(SHEET_URL+(SHEET_URL.indexOf('?')<0?'?':'&')+'t='+Date.now())
+    .then(function(r){return r.json()})
+    .then(function(j){
+      if(!j||!j.ok||!j.data)return;
+      if(String(j.updated)===lastUpdated)return;
+      var d;try{d=JSON.parse(j.data)}catch(e){return}
+      lastUpdated=String(j.updated);
+      if(!d||d.schema!==de.dataset.schema||!d.html||d.html===content())return;
+      applying=true;
+      root.innerHTML=d.html;applyEditable();calcAll();show(true);saveLocal(true);
+      applying=false;say('Đã cập nhật từ Google Sheet');
+    }).catch(function(){applying=false});
+}
+
+/* ----- công cụ ----- */
+setEdit(false);calcAll();show();pullRemote();
+setInterval(function(){var a=document.activeElement;if(editing||(a&&(a.isContentEditable||a.id==='todoIn')))return;pullRemote()},30000);
+document.getElementById('bEdit').addEventListener('click',function(){setEdit(!editing)});
+document.getElementById('bSave').addEventListener('click',function(){saveLocal(false);if(SHEET_URL){clearTimeout(remoteTimer);pushRemote()}});
+document.getElementById('bPrint').addEventListener('click',function(){window.print()});
+document.getElementById('bReset').addEventListener('click',function(){
+  if(!confirm('Xóa dữ liệu đã lưu (cả trên Google Sheet nếu có) và quay về nội dung gốc của file này?'))return;
+  try{localStorage.removeItem(KEY)}catch(e){}
+  if(SHEET_URL){fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({data:''})}).then(function(){location.reload()},function(){location.reload()})}
+  else location.reload();
+});
+document.getElementById('bDl').addEventListener('click',function(){
+  var ver='v'+Date.now(),clone=de.cloneNode(true);
+  clone.setAttribute('data-version',ver);
+  clone.querySelector('#content').innerHTML=content();
+  clone.querySelector('body').className='';
+  clone.querySelector('#msg').textContent='';
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['<!doctype html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'}));
+  a.download='index.html';
+  document.body.appendChild(a);a.click();a.remove();
+  de.dataset.version=ver;saveLocal(true);
+  say('Đã tải file. Dùng file này thay cho index.html cũ');
+});
+root.addEventListener('focusin',function(e){var t=e.target.closest&&e.target.closest('.tkb td');if(t)last=t});
+root.addEventListener('input',function(e){
+  if(e.target.closest&&e.target.closest('td.sc'))calcAll();
+  clearTimeout(timer);timer=setTimeout(function(){saveLocal(true);if(!SHEET_URL)say('Đã tự lưu')},600);
+});
+root.addEventListener('paste',function(e){
+  if(!e.target.closest||!e.target.closest('[contenteditable]'))return;
+  e.preventDefault();
+  document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text/plain'));
+});
+document.getElementById('pal').addEventListener('mousedown',function(e){e.preventDefault()});
+document.getElementById('pal').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-c]');
+  if(!b||!last||!root.contains(last))return;
+  COLORS.forEach(function(c){last.classList.remove(c)});
+  last.classList.add(b.dataset.c);saveLocal(true);say('Đã đổi màu ô');
+});
+document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveLocal(false)}});
+})();
+</script>
 </body>
 </html>
