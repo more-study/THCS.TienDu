@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vi" data-version="v1" data-schema="1">
+<html lang="vi" data-version="v1793888405315" data-schema="2">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,159 +26,93 @@ header.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;bo
 .tools button{font:inherit;font-weight:600;border:0;border-radius:6px;padding:5px 11px;cursor:pointer;background:#fff;color:var(--navy)}
 .tools button:hover{background:#e2e8f0}
 .tools button.on{background:var(--amber);color:#1f2937}
-#pal{display:none;align-items:center;gap:5px;flex-wrap:wrap;color:#e2e8f0}
-body.editing #pal{display:flex}
-#pal #swatches{display:inline-flex;gap:5px;flex-wrap:wrap}
-#pal #swatches button{width:22px;height:22px;padding:0;border:2px solid #fff;border-radius:50%}
-#colPick{width:34px;height:26px;padding:0;border:2px solid #fff;border-radius:6px;background:none;cursor:pointer}
-#palEd{display:none;background:#fff;color:var(--ink);border-bottom:2px solid var(--amber)}
-#palEd.open{display:block}
-#palEd .inner{max-width:1180px;margin:0 auto;padding:10px 16px;font-size:13px}
-#palEd .hint{color:var(--mute);margin-left:6px}
-#palRows{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 14px;margin:8px 0}
-#palRows .prow{display:flex;align-items:center;gap:6px}
-#palRows input[type=color]{width:34px;height:28px;padding:0;border:1px solid var(--line);border-radius:6px;cursor:pointer;flex:none}
-#palRows input.pn{flex:1;min-width:0;font:inherit;padding:4px 8px;border:1px solid var(--line);border-radius:6px}
-#palRows code{font-size:12px;color:var(--mute);width:62px}
-#palRows .pd{border:0;background:none;color:#dc2626;cursor:pointer;font:inherit;font-size:12px}
-#palEd .acts{display:flex;gap:8px}
-#palEd .acts button{font:inherit;font-weight:600;border:1px solid var(--line);background:#f8fafc;border-radius:6px;padding:5px 11px;cursor:pointer}
-#msg{color:#fde68a;margin-left:auto}
-/* ---------- bố cục chung ---------- */
-main{max-width:1180px;margin:0 auto;padding:20px 16px 40px}
-section.pg{display:none}
-section.pg.active{display:block}
-h2.title{margin:4px 0 4px;font-size:26px;font-weight:800;color:var(--navy)}
-p.sub{margin:0 0 16px;color:var(--mute);font-size:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
-.card h3{margin:0 0 10px;font-size:17px;color:var(--navy)}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.scroll{overflow-x:auto}
-/* ---------- trang chủ ---------- */
-.hero{background:var(--navy);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:18px}
-.hero small{display:block;letter-spacing:2px;font-weight:600;color:#fcd34d;font-size:12px;text-transform:uppercase}
-.hero h1{margin:6px 0 4px;font-size:34px;font-weight:800;line-height:1.2}
-.hero p{margin:0;color:#dbe4ef}
-.info{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.info span{background:#ffffff1a;border-radius:99px;padding:5px 14px;font-size:13.5px;font-weight:500}
-.info b{font-weight:700}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.menu a{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .12s,box-shadow .12s}
-.menu a:hover{transform:translateY(-3px);box-shadow:0 8px 20px #1e3a5f22}
-.menu i{display:inline-block;font-style:normal;font-weight:800;font-size:13px;color:#fff;background:var(--amber);border-radius:8px;padding:2px 10px;margin-bottom:10px}
-.menu h3{margin:0 0 4px;font-size:19px;color:var(--navy)}
-.menu p{margin:0;color:var(--mute);font-size:14px}
-/* ---------- thời khóa biểu ---------- */
-table.tkb{border-collapse:separate;border-spacing:4px;width:100%;min-width:900px;table-layout:fixed;color:#1f2937}
-table.tkb th,table.tkb td{border-radius:8px;text-align:center;vertical-align:middle;padding:4px 6px;line-height:1.25;height:62px}
-table.tkb th{background:#1e3a5f;color:#fff;font-size:14px;font-weight:700;height:34px}
-table.tkb td.sess{width:34px;padding:0;font-weight:800;font-size:13px;letter-spacing:3px;color:#fff}
-table.tkb td.sess span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto}
-table.tkb td.sang{background:#f59e0b}
-table.tkb td.chieu{background:#7c5cbf}
-table.tkb td.tiet{background:#eef2f7;font-weight:700;font-size:13px}
-table.tkb td.tiet small{display:block;font-weight:500;font-size:11.5px;color:#475569;margin-top:2px}
-table.tkb td.m b{display:block;font-size:13px;font-weight:700}
-table.tkb td.m span{display:block;font-size:11.5px;margin-top:2px;color:#374151}
-td.toan{background:#d6e8ff}td.van{background:#ffd9d9}td.anh{background:#ffe3c2}td.khtn{background:#d8f1d8}td.su{background:#ecdfca}
-td.hdtn{background:#e6d7f6}td.gdtc{background:#cdf0ea}td.nt{background:#fbd7e8}td.tin{background:#dbe0ff}td.cn{background:#e3e4dc}td.gd{background:#dde4ee}
-td.ht{background:#fff0a3;border:2px dashed #b45309}
-td.ht i{display:inline-block;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.5px;background:#b45309;color:#fff;border-radius:99px;padding:1px 8px;margin-bottom:4px}
-table.tkb td.nghi{background:#f1f3f5;color:#9aa3ad;font-size:13px;font-weight:600}
-table.tkb td.nghi span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto;letter-spacing:4px}
-table.tkb td.trong{background:#fafbfc;color:#c3c9d0;font-size:13px}
-.note{font-size:12.5px;color:var(--mute);margin:10px 4px 0}
-/* ---------- điểm thi ---------- */
-.seg{display:inline-flex;background:#e2e8f0;border-radius:10px;padding:3px;margin-bottom:14px}
-.seg button{font:inherit;font-weight:700;font-size:14px;border:0;background:none;padding:7px 18px;border-radius:8px;cursor:pointer;color:#475569}
-.seg button.on{background:var(--navy);color:#fff}
-.hk{display:none}
-.hk.active{display:block}
-table.st{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
-table.st th{background:var(--navy);color:#fff;padding:9px 8px;font-weight:700;text-align:center;border:1px solid #fff3}
-table.st td{border:1px solid var(--line);padding:8px;text-align:center;background:#fff}
-table.st td.nm{text-align:left;font-weight:600;background:#f8fafc}
-table.st td.sc{color:#111}
-table.st td.avg{font-weight:800;color:var(--navy);background:#eef4ff}
-table.st tr.sum td{background:#fff7e0;font-weight:800;border-top:2px solid var(--amber)}
-table.st td.sc:empty::before{content:"–";color:#c0c8d2}
-/* ---------- kế hoạch ---------- */
-.plan ul.goals{margin:0;padding-left:20px}
-.plan ul.goals li{margin:4px 0}
-table.pl{border-collapse:collapse;width:100%;font-size:14px}
-table.pl th{text-align:left;background:#eef2f7;padding:8px 10px;border:1px solid var(--line);color:var(--navy)}
-table.pl td{padding:8px 10px;border:1px solid var(--line);vertical-align:top}
-table.pl tr.extra td:first-child{font-weight:700}
-.tag{display:inline-block;background:#fff0a3;border:1.5px dashed #b45309;border-radius:99px;padding:0 9px;font-size:11px;font-weight:800;color:#92400e}
-ul.todo{list-style:none;margin:0 0 10px;padding:0}
-ul.todo li{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line)}
-ul.todo li input[type=checkbox]{width:18px;height:18px;accent-color:var(--navy);flex:none}
-ul.todo li span{flex:1}
-ul.todo li input:checked+span{text-decoration:line-through;color:#94a3b8}
-ul.todo li button{border:0;background:none;color:#94a3b8;font-size:18px;cursor:pointer;line-height:1}
-ul.todo li button:hover{color:#dc2626}
-.add{display:flex;gap:8px}
-.add input{flex:1;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
-.add button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:8px 16px;background:var(--navy);color:#fff;cursor:pointer}
-/* ---------- chế độ sửa ---------- */
-body.editing [data-e]:hover,body.editing .tkb td:hover,body.editing .tkb th:hover,body.editing td.nm:hover{outline:2px dotted var(--amber);outline-offset:-2px;cursor:text}
-[contenteditable]:focus{outline:2px solid #2563eb !important;outline-offset:-2px}
-td.sc[contenteditable]{cursor:text}
-footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px}
-@media (max-width:640px){.hero h1{font-size:26px}.hero{padding:24px 18px}h2.title{font-size:22px}}
-@media print{
-  header.top,footer,.seg,.add,ul.todo button{display:none}
-  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  main{padding:0}
-  .card{border:0;padding:0}
-  .scroll{overflow:visible}
-  table.tkb{min-width:0}
-  section.pg.active .hk{display:block}
-  @page{size:A4 landscape;margin:10mm}
-}
-</style>
+
+.edit-tools { display: none; gap: 8px; align-items: center; } body.editing .edit-tools { display: inline-flex; }
+#msg{color:#fde68a;margin-left:auto} /* ---------- bố cục chung ---------- */ main{max-width:1180px;margin:0 auto;padding:20px 16px 40px} section.pg{display:none} section.pg.active{display:block} h2.title{margin:4px 0 4px;font-size:26px;font-weight:800;color:var(--navy)} p.sub{margin:0 0 16px;color:var(--mute);font-size:14px} .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px} .card h3{margin:0 0 10px;font-size:17px;color:var(--navy)} .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px} .scroll{overflow-x:auto}
+/* ---------- form thông tin cá nhân ---------- */ .form-group{margin-bottom:14px} .form-group label{display:block;font-weight:600;margin-bottom:4px;font-size:14px;color:var(--navy)} .form-group input, .form-group select{width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff} .form-inline{display:flex;gap:8px;margin-top:6px} .btn-primary{background:var(--navy);color:#fff;border:0;border-radius:8px;padding:8px 16px;font-weight:700;cursor:pointer} .btn-primary:hover{background:var(--navy2)}
+/* ---------- trang chủ ---------- */ .hero{background:var(--navy);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:18px} .hero small{display:block;letter-spacing:2px;font-weight:600;color:#fcd34d;font-size:12px;text-transform:uppercase} .hero h1{margin:6px 0 4px;font-size:34px;font-weight:800;line-height:1.2} .hero p{margin:0;color:#dbe4ef} .info{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px} .info span{background:#ffffff1a;border-radius:99px;padding:5px 14px;font-size:13.5px;font-weight:500} .info b{font-weight:700} .menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px} .menu a{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .12s,box-shadow .12s} .menu a:hover{transform:translateY(-3px);box-shadow:0 8px 20px #1e3a5f22} .menu i{display:inline-block;font-style:normal;font-weight:800;font-size:13px;color:#fff;background:var(--amber);border-radius:8px;padding:2px 10px;margin-bottom:10px} .menu h3{margin:0 0 4px;font-size:19px;color:var(--navy)} .menu p{margin:0;color:var(--mute);font-size:14px}
+/* ---------- thời khóa biểu ---------- */ table.tkb{border-collapse:separate;border-spacing:4px;width:100%;min-width:900px;table-layout:fixed;color:#1f2937} table.tkb th,table.tkb td{border-radius:8px;text-align:center;vertical-align:middle;padding:4px 6px;line-height:1.25;height:62px} table.tkb th{background:#1e3a5f;color:#fff;font-size:14px;font-weight:700;height:34px} table.tkb td.sess{width:34px;padding:0;font-weight:800;font-size:13px;letter-spacing:3px;color:#fff} table.tkb td.sess span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto} table.tkb td.sang{background:#f59e0b} table.tkb td.chieu{background:#7c5cbf} table.tkb td.tiet{background:#eef2f7;font-weight:700;font-size:13px} table.tkb td.tiet small{display:block;font-weight:500;font-size:11.5px;color:#475569;margin-top:2px} table.tkb td.m b{display:block;font-size:13px;font-weight:700} table.tkb td.m span{display:block;font-size:11.5px;margin-top:2px;color:#374151} td.toan{background:#d6e8ff}td.van{background:#ffd9d9}td.anh{background:#ffe3c2}td.khtn{background:#d8f1d8}td.su{background:#ecdfca} td.hdtn{background:#e6d7f6}td.gdtc{background:#cdf0ea}td.nt{background:#fbd7e8}td.tin{background:#dbe0ff}td.cn{background:#e3e4dc}td.gd{background:#dde4ee} td.ht{background:#fff0a3;border:2px dashed #b45309} td.ht i{display:inline-block;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.5px;background:#b45309;color:#fff;border-radius:99px;padding:1px 8px;margin-bottom:4px} table.tkb td.nghi{background:#f1f3f5;color:#9aa3ad;font-size:13px;font-weight:600} table.tkb td.nghi span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto;letter-spacing:4px} table.tkb td.trong{background:#fafbfc;color:#c3c9d0;font-size:13px} .note{font-size:12.5px;color:var(--mute);margin:10px 4px 0}
+/* ---------- điểm thi ---------- */ .seg{display:inline-flex;background:#e2e8f0;border-radius:10px;padding:3px;margin-bottom:14px} .seg button{font:inherit;font-weight:700;font-size:14px;border:0;background:none;padding:7px 18px;border-radius:8px;cursor:pointer;color:#475569} .seg button.on{background:var(--navy);color:#fff} .hk{display:none} .hk.active{display:block} table.st{border-collapse:collapse;width:100%;min-width:640px;font-size:14px} table.st th{background:var(--navy);color:#fff;padding:9px 8px;font-weight:700;text-align:center;border:1px solid #fff3} table.st td{border:1px solid var(--line);padding:8px;text-align:center;background:#fff} table.st td.nm{text-align:left;font-weight:600;background:#f8fafc} table.st td.sc{color:#111} table.st td.avg{font-weight:800;color:var(--navy);background:#eef4ff} table.st tr.sum td{background:#fff7e0;font-weight:800;border-top:2px solid var(--amber)} table.st td.sc:empty::before{content:"–";color:#c0c8d2}
+/* ---------- kế hoạch ---------- */ .plan ul.goals{margin:0;padding-left:20px} .plan ul.goals li{margin:4px 0} table.pl{border-collapse:collapse;width:100%;font-size:14px} table.pl th{text-align:left;background:#eef2f7;padding:8px 10px;border:1px solid var(--line);color:var(--navy)} table.pl td{padding:8px 10px;border:1px solid var(--line);vertical-align:top} table.pl tr.extra td:first-child{font-weight:700} ul.todo{list-style:none;margin:0 0 10px;padding:0} ul.todo li{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line)} ul.todo li input[type=checkbox]{width:18px;height:18px;accent-color:var(--navy);flex:none} ul.todo li span{flex:1} ul.todo li input:checked+span{text-decoration:line-through;color:#94a3b8} ul.todo li button{border:0;background:none;color:#94a3b8;font-size:18px;cursor:pointer;line-height:1} ul.todo li button:hover{color:#dc2626} .add{display:flex;gap:8px} .add input{flex:1;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px} .add button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:8px 16px;background:var(--navy);color:#fff;cursor:pointer}
+/* ---------- chế độ sửa ---------- */ body.editing [data-e]:hover,body.editing .tkb td:hover,body.editing .tkb th:hover,body.editing td.nm:hover{outline:2px dotted var(--amber);outline-offset:-2px;cursor:text} [contenteditable]:focus{outline:2px solid #2563eb !important;outline-offset:-2px} td.sc[contenteditable]{cursor:text} footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px} @media (max-width:640px){.hero h1{font-size:26px}.hero{padding:24px 18px}h2.title{font-size:22px}} @media print{ header.top,footer,.seg,.add,ul.todo button{display:none} body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} main{padding:0} .card{border:0;padding:0} .scroll{overflow:visible} table.tkb{min-width:0} section.pg.active .hk{display:block} @page{size:A4 landscape;margin:10mm} } </style>
 </head>
-<body>
+<body class="">
 <header class="top">
 <div class="nav">
-<a class="brand" href="#home"><b>THCS TIÊN DU</b><span>Học sinh: Nguyễn Doãn Việt Anh · Lớp 6B</span></a>
+<a class="brand" href="#home" id="topBrand"><b>THCS TIÊN DU</b><span id="subBrand">Học sinh: Nguyễn Doãn Việt Anh · Lớp 6B</span></a>
 <ul>
+<li><a href="#profile" data-p="profile">Thông tin cá nhân</a></li>
 <li><a href="#tkb" data-p="tkb">Thời khóa biểu</a></li>
-<li><a href="#diem" data-p="diem">Điểm thi</a></li>
+<li><a href="#diem" data-p="diem" class="cur">Điểm thi</a></li>
 <li><a href="#kh" data-p="kh">Kế hoạch học tập</a></li>
 </ul>
 </div>
 <div class="tools"><div>
-<button type="button" id="bEdit">Bật chế độ sửa</button>
-<span id="pal"><span>Màu ô đang chọn:</span><span id="swatches"></span><input type="color" id="colPick" value="#ffd9d9" title="Chọn màu tùy ý" aria-label="Chọn màu tùy ý"><button type="button" id="bColAdd">Lưu màu này</button><button type="button" id="bColOff">Bỏ màu</button><button type="button" id="bPalEd">Sửa bảng màu</button></span>
-<button type="button" id="bSave">Lưu ngay</button>
-<button type="button" id="bDl">Tải file index.html đã sửa</button>
+<button type="button" id="bEdit" class="on">Tắt chế độ sửa</button>
+<span class="edit-tools">
+  <button type="button" id="bSave">Lưu ngay</button>
+  <button type="button" id="bDl">Tải file index.html đã sửa</button>
+  <button type="button" id="bReset">Xóa bản đã lưu</button>
+</span>
 <button type="button" id="bPrint">In trang này</button>
-<button type="button" id="bReset">Xóa bản đã lưu</button>
 <span id="msg"></span>
-</div></div>
-<div id="palEd"><div class="inner">
-<b>Bảng màu đã lưu</b> <span class="hint">Bấm ô màu để đổi mã màu, gõ để đổi tên. Các ô đã tô trước đó giữ nguyên màu cũ.</span>
-<div id="palRows"></div>
-<div class="acts"><button type="button" id="bPalNew">+ Thêm màu</button><button type="button" id="bPalReset">Về bảng màu mặc định</button><button type="button" id="bPalClose">Đóng</button></div>
 </div></div>
 </header>
 
 <main id="content">
 
+<!-- ================= THÔNG TIN CÁ NHÂN ================= -->
+
+<section class="pg" id="profile">
+<h2 class="title">Thông tin cá nhân</h2>
+<p class="sub">Cập nhật thông tin học sinh và quản lý danh sách các lớp học.</p>
+<div class="grid2">
+  <div class="card">
+    <h3>Thông tin chung</h3>
+    <div class="form-group">
+      <label for="studentName">Họ và tên học sinh:</label>
+      <input type="text" id="studentName" value="Nguyễn Doãn Việt Anh">
+    </div>
+    <div class="form-group">
+      <label for="currentClass">Lớp đang chọn:</label>
+      <select id="currentClass"></select>
+    </div>
+    <div class="form-group">
+      <label for="teacherName">Cô giáo chủ nhiệm (Lớp đang chọn):</label>
+      <input type="text" id="teacherName" placeholder="Nhập tên cô giáo chủ nhiệm...">
+    </div>
+    <button type="button" id="btnSaveProfile" class="btn-primary">Lưu thông tin</button>
+  </div>
+
+  <div class="card">
+    <h3>Thêm lớp học mới</h3>
+    <p style="font-size:13px;color:var(--mute)">Mỗi lớp học sẽ lưu lại Thời khóa biểu và Bảng điểm thi hoàn toàn riêng biệt.</p>
+    <div class="form-group">
+      <label for="newClassName">Tên lớp mới (Ví dụ: 7B, 8B):</label>
+      <div class="form-inline">
+        <input type="text" id="newClassName" placeholder="Nhập tên lớp...">
+        <button type="button" id="btnAddClass" class="btn-primary">Thêm lớp</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
 <!-- ================= TRANG CHỦ ================= -->
+
 <section class="pg" id="home">
 <div class="hero">
 <small>Trường Trung học cơ sở</small>
-<h1 data-e>THCS Tiên Du</h1>
-<p data-e>Góc học tập của em</p>
+<h1 data-e="" id="heroTitle">THCS Tiên Du</h1>
+<p data-e="">Góc học tập của em</p>
 <div class="info">
-<span data-e><b>Học sinh:</b> Nguyễn Doãn Việt Anh</span>
-<span data-e><b>Lớp:</b> 6B</span>
-<span data-e><b>Năm học:</b> 2026–2027</span>
+<span data-e=""><b id="lblStudent">Học sinh: Nguyễn Doãn Việt Anh</b></span>
+<span data-e=""><b id="lblClass">Lớp: 6B</b></span>
+<span data-e=""><b id="lblTeacher">GVCN: Cô Lý</b></span>
 </div>
 </div>
 <nav class="menu">
+<a href="#profile"><i>0</i><h3>Thông tin cá nhân</h3><p>Cài đặt tên học sinh, giáo viên chủ nhiệm và chuyển đổi/thêm lớp học.</p></a>
 <a href="#tkb"><i>1</i><h3>Thời khóa biểu</h3><p>Lịch học chính khóa, giờ vào lớp, giờ tan và lịch học thêm.</p></a>
 <a href="#diem"><i>2</i><h3>Điểm thi</h3><p>Bảng điểm từng môn theo học kỳ, tự tính điểm trung bình.</p></a>
 <a href="#kh"><i>3</i><h3>Kế hoạch học tập</h3><p>Mục tiêu, lịch học thêm và danh sách việc cần làm.</p></a>
@@ -186,9 +120,10 @@ footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px}
 </section>
 
 <!-- ================= THỜI KHÓA BIỂU ================= -->
+
 <section class="pg" id="tkb">
-<h2 class="title" data-e>Thời khóa biểu lớp 6B</h2>
-<p class="sub" data-e>Năm học 2026–2027 · Giờ học theo hiệu lệnh trống áp dụng từ 19/10/2026 · Truy bài 7:05</p>
+<h2 class="title" id="tkbTitle">Thời khóa biểu lớp 6B</h2>
+<p class="sub" data-e="">Năm học 2026–2027 · Giờ học theo hiệu lệnh trống áp dụng từ 19/10/2026 · Truy bài 7:05</p>
 <div class="card"><div class="scroll">
 <table class="tkb">
 <colgroup>
@@ -201,7 +136,7 @@ footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px}
 <col>
 <col style="width: 62px">
 </colgroup>
-<tr>
+<tbody><tr>
 <th colspan="2">Tiết / Giờ</th>
 <th>Thứ Hai</th>
 <th>Thứ Ba</th>
@@ -270,98 +205,166 @@ footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px}
 <td class="m ht"><i>HỌC THÊM</i><b>Tiếng Anh</b><span>17:00 – 19:00</span></td>
 <td class="trong">—</td>
 </tr>
-</table>
+</tbody></table>
 </div>
-<p class="note" data-e>Ô viền nét đứt màu vàng là lịch học thêm. Tiết 5 sáng và tiết 4 chiều không có lịch học.</p>
+<p class="note" data-e=""><br></p>
 </div>
 </section>
 
 <!-- ================= ĐIỂM THI ================= -->
+
 <section class="pg" id="diem">
-<h2 class="title">Điểm thi</h2>
+<h2 class="title" id="diemTitle">Điểm thi lớp 6B</h2>
 <p class="sub">Bấm vào ô để nhập điểm (thang 10, dùng dấu chấm hoặc phẩy). Điểm trung bình môn tự tính khi đã có điểm giữa kỳ và cuối kỳ.</p>
-<div class="seg" role="tablist"><button type="button" class="on" data-hk="hk1">Học kỳ I</button><button type="button" data-hk="hk2">Học kỳ II</button></div>
+<div class="seg" role="tablist"><button type="button" class="on" data-hk="hk1">Học kỳ I</button><button type="button" data-hk="hk2" class="">Học kỳ II</button></div>
 <div class="hk active" id="hk1"><div class="card scroll"><table class="st">
-<tr><th style="text-align:left">Môn học</th><th>TX 1</th><th>TX 2</th><th>TX 3</th><th>TX 4</th><th>Giữa kỳ</th><th>Cuối kỳ</th><th>ĐTB môn</th></tr>
+<tbody><tr><th style="text-align:left">Môn học</th><th>TX 1</th><th>TX 2</th><th>TX 3</th><th>TX 4</th><th>Giữa kỳ</th><th>Cuối kỳ</th><th>ĐTB môn</th></tr>
 <tr class="sub"><td class="nm">Toán</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Ngữ văn</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tiếng Anh</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">KHTN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">LS&amp;ĐL</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDCD</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Công nghệ</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tin học</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDTC</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Nghệ thuật</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">HĐTN, HN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDĐP</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr>
 <tr class="sum"><td class="nm" colspan="7" style="text-align:right">ĐTB các môn (tạm tính)</td><td class="overall">–</td></tr>
-</table></div></div>
+</tbody></table></div></div>
 <div class="hk" id="hk2"><div class="card scroll"><table class="st">
-<tr><th style="text-align:left">Môn học</th><th>TX 1</th><th>TX 2</th><th>TX 3</th><th>TX 4</th><th>Giữa kỳ</th><th>Cuối kỳ</th><th>ĐTB môn</th></tr>
+<tbody><tr><th style="text-align:left">Môn học</th><th>TX 1</th><th>TX 2</th><th>TX 3</th><th>TX 4</th><th>Giữa kỳ</th><th>Cuối kỳ</th><th>ĐTB môn</th></tr>
 <tr class="sub"><td class="nm">Toán</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Ngữ văn</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tiếng Anh</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">KHTN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">LS&amp;ĐL</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDCD</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Công nghệ</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Tin học</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDTC</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">Nghệ thuật</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">HĐTN, HN</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr><tr class="sub"><td class="nm">GDĐP</td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc tx"></td><td class="sc gk"></td><td class="sc ck"></td><td class="avg">–</td></tr>
 <tr class="sum"><td class="nm" colspan="7" style="text-align:right">ĐTB các môn (tạm tính)</td><td class="overall">–</td></tr>
-</table></div></div>
+</tbody></table></div></div>
 <p class="note">Cách tính: ĐTB môn = (tổng điểm thường xuyên + 2 × điểm giữa kỳ + 3 × điểm cuối kỳ) ÷ (số điểm thường xuyên + 5). Đây chỉ là số tạm tính để tham khảo, điểm chính thức theo sổ điểm của nhà trường.</p>
 </section>
 
 <!-- ================= KẾ HOẠCH HỌC TẬP ================= -->
+
 <section class="pg plan" id="kh">
 <h2 class="title">Kế hoạch học tập</h2>
-<p class="sub">Mục tiêu và việc cần làm của Nguyễn Doãn Việt Anh. Bật chế độ sửa để ghi vào các ô.</p>
+<p class="sub">Mục tiêu và việc cần làm. Bật chế độ sửa để ghi vào các ô.</p>
 <div class="grid2">
 <div class="card">
 <h3>Mục tiêu học kỳ</h3>
 <ul class="goals">
-<li data-e>Mục tiêu 1: nhập mục tiêu của em</li>
-<li data-e>Mục tiêu 2: nhập mục tiêu của em</li>
-<li data-e>Mục tiêu 3: nhập mục tiêu của em</li>
+<li data-e="">Mục tiêu 1: nhập mục tiêu của em</li>
+<li data-e="">Mục tiêu 2: nhập mục tiêu của em</li>
+<li data-e="">Mục tiêu 3: nhập mục tiêu của em</li>
 </ul>
 </div>
 <div class="card">
 <h3>Việc cần làm</h3>
-<ul class="todo" id="todo"></ul>
+<ul class="todo" id="todo"><li><input type="checkbox" aria-label="Hoàn thành"><span>Làm bài tập về nhà</span><button type="button" aria-label="Xóa việc này">×</button></li><li><input type="checkbox" aria-label="Hoàn thành"><span>Ôn lại bài các môn học trong ngày</span><button type="button" aria-label="Xóa việc này">×</button></li><li><input type="checkbox" aria-label="Hoàn thành"><span>Chuẩn bị sách vở cho ngày mai</span><button type="button" aria-label="Xóa việc này">×</button></li></ul>
 <div class="add"><input id="todoIn" type="text" placeholder="Thêm việc cần làm..." aria-label="Việc cần làm mới"><button type="button" id="todoAdd">Thêm</button></div>
 </div>
 </div>
 <div class="card" style="margin-top:16px">
 <h3>Lịch học thêm hằng tuần</h3>
 <div class="scroll"><table class="pl">
-<tr><th>Thứ</th><th>Môn</th><th>Giờ học</th><th>Ghi chú</th></tr>
-<tr class="extra"><td data-e>Thứ Hai</td><td data-e>Toán</td><td data-e>14:00 – 16:00</td><td data-e>Ăn trưa nhà thầy Dũng</td></tr>
-<tr class="extra"><td data-e>Thứ Ba</td><td data-e>Tiếng Anh</td><td data-e>17:00 – 19:00</td><td data-e></td></tr>
-<tr class="extra"><td data-e>Thứ Tư</td><td data-e>Tiếng Anh</td><td data-e>17:00 – 19:00</td><td data-e></td></tr>
-<tr class="extra"><td data-e>Thứ Năm</td><td data-e>Ngữ văn</td><td data-e>14:00 – 17:10</td><td data-e>Ăn trưa nhà thầy Dũng</td></tr>
-</table></div>
+<tbody><tr><th>Thứ</th><th>Môn</th><th>Giờ học</th><th>Ghi chú</th></tr>
+<tr class="extra"><td data-e="">Thứ Hai</td><td data-e="">Toán</td><td data-e="">14:00 – 16:00</td><td data-e="">Ăn trưa nhà thầy Dũng</td></tr>
+<tr class="extra"><td data-e="">Thứ Ba</td><td data-e="">Tiếng Anh</td><td data-e="">17:00 – 19:00</td><td data-e=""></td></tr>
+<tr class="extra"><td data-e="">Thứ Tư</td><td data-e="">Tiếng Anh</td><td data-e="">17:00 – 19:00</td><td data-e=""></td></tr>
+<tr class="extra"><td data-e="">Thứ Năm</td><td data-e="">Ngữ văn</td><td data-e="">14:00 – 17:10</td><td data-e="">Ăn trưa nhà thầy Dũng</td></tr>
+</tbody></table></div>
 </div>
 <div class="card" style="margin-top:16px">
 <h3>Mục tiêu điểm theo môn</h3>
 <div class="scroll"><table class="pl">
-<tr><th>Môn</th><th>Điểm hiện tại</th><th>Điểm mục tiêu</th><th>Cách thực hiện</th></tr>
-<tr><td data-e>Toán</td><td data-e></td><td data-e></td><td data-e></td></tr>
-<tr><td data-e>Ngữ văn</td><td data-e></td><td data-e></td><td data-e></td></tr>
-<tr><td data-e>Tiếng Anh</td><td data-e></td><td data-e></td><td data-e></td></tr>
-<tr><td data-e>KHTN</td><td data-e></td><td data-e></td><td data-e></td></tr>
-<tr><td data-e>LS&amp;ĐL</td><td data-e></td><td data-e></td><td data-e></td></tr>
-</table></div>
+<tbody><tr><th>Môn</th><th>Điểm hiện tại</th><th>Điểm mục tiêu</th><th>Cách thực hiện</th></tr>
+<tr><td data-e="">Toán</td><td data-e=""></td><td data-e=""></td><td data-e=""></td></tr>
+<tr><td data-e="">Ngữ văn</td><td data-e=""></td><td data-e=""></td><td data-e=""></td></tr>
+<tr><td data-e="">Tiếng Anh</td><td data-e=""></td><td data-e=""></td><td data-e=""></td></tr>
+<tr><td data-e="">KHTN</td><td data-e=""></td><td data-e=""></td><td data-e=""></td></tr>
+<tr><td data-e="">LS&amp;ĐL</td><td data-e=""></td><td data-e=""></td><td data-e=""></td></tr>
+</tbody></table></div>
 </div>
 </section>
 
 </main>
-<footer>Trường THCS Tiên Du · Học sinh Nguyễn Doãn Việt Anh · Lớp 6B</footer>
+<footer id="mainFooter">Trường THCS Tiên Du · Học sinh Nguyễn Doãn Việt Anh · Lớp 6B</footer>
 
 <script>
 (function(){
-/* Dán địa chỉ Web app của Google Apps Script (kết thúc bằng /exec) vào giữa hai dấu nháy: */
 var SHEET_URL='https://script.google.com/macros/s/AKfycbzPIpvai8bcTZuPiASEaC9ETu2qUyCPAL5dt5mvHY2Tqawg5NkPhtPXEBV-deTND1QdBQ/exec';
 var KEY='thcs-tiendu-saved',root=document.getElementById('content'),de=document.documentElement;
-var SEL='[data-e],.tkb td,.tkb th,td.nm',COLORS=['toan','van','anh','khtn','su','hdtn','gdtc','nt','tin','cn','gd','ht','trong'];
-var last=null,editing=false,timer=null,msgEl=document.getElementById('msg');
+var SEL='[data-e],.tkb td,.tkb th,td.nm';
+var editing=false,timer=null,msgEl=document.getElementById('msg');
 function say(t){msgEl.textContent=t;clearTimeout(say.t);say.t=setTimeout(function(){msgEl.textContent=''},2500)}
 
-var DEFAULT_PAL=[{n:'Toán',c:'#d6e8ff'},{n:'Ngữ văn',c:'#ffd9d9'},{n:'Tiếng Anh',c:'#ffe3c2'},{n:'KHTN',c:'#d8f1d8'},{n:'LS&ĐL',c:'#ecdfca'},{n:'HĐTN',c:'#e6d7f6'},{n:'GDTC',c:'#cdf0ea'},{n:'Nghệ thuật',c:'#fbd7e8'},{n:'Tin học',c:'#dbe0ff'},{n:'Công nghệ',c:'#e3e4dc'},{n:'GDĐP / GDCD',c:'#dde4ee'},{n:'Học thêm',c:'#fff0a3'},{n:'Ô trống',c:'#fafbfc'}];
-var palette=DEFAULT_PAL.map(function(p){return{n:p.n,c:p.c}});
-try{if(de.dataset.palette){var pp=JSON.parse(de.dataset.palette);if(pp&&pp.length)palette=pp}}catch(e){}
-/* ----- nội dung có thể sửa ----- */
+
+/* Structure quản lý dữ liệu cá nhân & nhiều lớp học */
+var appState = {
+  profile: {
+    name: 'Nguyễn Doãn Việt Anh',
+    currentClass: '6B',
+    classList: ['6B'],
+    teachers: { '6B': 'Cô Lý' }
+  },
+  classData: {
+    '6B': { tkbHtml: '', diemHtml: '' }
+  },
+  planHtml: ''
+};
+
+
 function applyEditable(){
   root.querySelectorAll(SEL).forEach(function(el){if(editing)el.setAttribute('contenteditable','true');else el.removeAttribute('contenteditable')});
   root.querySelectorAll('td.sc').forEach(function(el){el.setAttribute('contenteditable','true')});
 }
+
+
 function setEdit(on){
   editing=on;document.body.classList.toggle('editing',on);applyEditable();
-  if(!on)document.getElementById('palEd').classList.remove('open');
   var b=document.getElementById('bEdit');b.classList.toggle('on',on);b.textContent=on?'Tắt chế độ sửa':'Bật chế độ sửa';
 }
+
+
+function updateUIInfo(){
+  var st = appState.profile;
+  document.getElementById('subBrand').textContent = 'Học sinh: ' + st.name + ' · Lớp ' + st.currentClass;
+  document.getElementById('lblStudent').textContent = 'Học sinh: ' + st.name;
+  document.getElementById('lblClass').textContent = 'Lớp: ' + st.currentClass;
+  var tc = st.teachers[st.currentClass] || 'Chưa cài đặt';
+  document.getElementById('lblTeacher').textContent = 'GVCN: ' + tc;
+  document.getElementById('mainFooter').textContent = 'Trường THCS Tiên Du · Học sinh ' + st.name + ' · Lớp ' + st.currentClass;
+  document.getElementById('tkbTitle').textContent = 'Thời khóa biểu lớp ' + st.currentClass;
+  document.getElementById('diemTitle').textContent = 'Điểm thi lớp ' + st.currentClass;
+  
+  // Update Profile Form Inputs
+  document.getElementById('studentName').value = st.name;
+  document.getElementById('teacherName').value = st.teachers[st.currentClass] || '';
+  
+  var sel = document.getElementById('currentClass');
+  sel.innerHTML = '';
+  st.classList.forEach(function(c){
+    var opt = document.createElement('option');
+    opt.value = c; opt.textContent = 'Lớp ' + c;
+    if(c === st.currentClass) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+
+
+function captureCurrentClassData(){
+  var curC = appState.profile.currentClass;
+  if(!appState.classData[curC]) appState.classData[curC] = {};
+  var tkb = document.getElementById('tkb');
+  var diem = document.getElementById('diem');
+  if(tkb) appState.classData[curC].tkbHtml = tkb.innerHTML;
+  if(diem) appState.classData[curC].diemHtml = diem.innerHTML;
+  var kh = document.getElementById('kh');
+  if(kh) appState.planHtml = kh.innerHTML;
+}
+
+
+function loadClassData(cls){
+  if(appState.classData[cls]){
+    if(appState.classData[cls].tkbHtml) document.getElementById('tkb').innerHTML = appState.classData[cls].tkbHtml;
+    if(appState.classData[cls].diemHtml) document.getElementById('diem').innerHTML = appState.classData[cls].diemHtml;
+  }
+  if(appState.planHtml){
+    document.getElementById('kh').innerHTML = appState.planHtml;
+  }
+  applyEditable();
+  calcAll();
+}
+
+
 function content(){
+  captureCurrentClassData();
   var c=root.cloneNode(true);
   c.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable')});
   c.querySelectorAll('section.pg').forEach(function(s){s.classList.remove('active')});
@@ -370,15 +373,36 @@ function content(){
   c.querySelectorAll('.seg button').forEach(function(b,i){b.classList.toggle('on',i===0)});
   return c.innerHTML;
 }
-function saveLocal(quiet){
-  scheduleRemote();
-  try{localStorage.setItem(KEY,JSON.stringify({base:de.dataset.version,html:content(),palette:palette}));if(!quiet)say('Đã lưu trong trình duyệt');return true}
-  catch(e){if(!quiet)say('Trình duyệt không cho lưu, hãy dùng nút Tải file');return false}
-}
-var restored=false;try{var st=JSON.parse(localStorage.getItem(KEY)||'null');if(st&&st.base===de.dataset.version&&st.html){root.innerHTML=st.html;restored=true;if(st.palette&&st.palette.length)palette=st.palette}}catch(e){}
 
-/* ----- điều hướng ----- */
-var pages=['home','tkb','diem','kh'];
+
+function saveLocal(quiet, actionName){
+  captureCurrentClassData();
+  scheduleRemote(actionName || 'Cập nhật dữ liệu');
+  try{
+    localStorage.setItem(KEY, JSON.stringify({
+      base: de.dataset.version,
+      appState: appState,
+      html: content()
+    }));
+    if(!quiet) say('Đã lưu trong trình duyệt');
+    return true;
+  }
+  catch(e){if(!quiet) say('Trình duyệt không cho lưu, hãy dùng nút Tải file'); return false;}
+}
+
+
+// Restore saved data
+try{
+  var st=JSON.parse(localStorage.getItem(KEY)||'null');
+  if(st && st.appState){
+    appState = st.appState;
+    if(st.html) root.innerHTML = st.html;
+  }
+}catch(e){}
+
+
+/* ----- Điều hướng ----- */
+var pages=['home','profile','tkb','diem','kh'];
 function show(keep){
   var id=(location.hash||'#home').slice(1);if(pages.indexOf(id)<0)id='home';
   root.querySelectorAll('section.pg').forEach(function(s){s.classList.toggle('active',s.id===id)});
@@ -387,7 +411,50 @@ function show(keep){
 }
 window.addEventListener('hashchange',function(){show()});
 
-/* ----- điểm thi ----- */
+
+/* ----- Quản lý profile & lớp học ----- */
+document.getElementById('btnSaveProfile').addEventListener('click', function(){
+  var name = document.getElementById('studentName').value.trim();
+  var teacher = document.getElementById('teacherName').value.trim();
+  if(name) appState.profile.name = name;
+  appState.profile.teachers[appState.profile.currentClass] = teacher;
+  updateUIInfo();
+  saveLocal(false, 'Cập nhật thông tin cá nhân');
+});
+
+
+document.getElementById('currentClass').addEventListener('change', function(e){
+  captureCurrentClassData();
+  appState.profile.currentClass = e.target.value;
+  updateUIInfo();
+  loadClassData(appState.profile.currentClass);
+  saveLocal(false, 'Chuyển lớp học sang ' + appState.profile.currentClass);
+});
+
+
+document.getElementById('btnAddClass').addEventListener('click', function(){
+  var newC = document.getElementById('newClassName').value.trim().toUpperCase();
+  if(!newC) return;
+  if(appState.profile.classList.indexOf(newC) < 0){
+    captureCurrentClassData();
+    appState.profile.classList.push(newC);
+    // Clone TKB & Điểm từ lớp hiện tại làm khuôn mẫu
+    appState.classData[newC] = {
+      tkbHtml: document.getElementById('tkb').innerHTML,
+      diemHtml: document.getElementById('diem').innerHTML
+    };
+    appState.profile.currentClass = newC;
+    document.getElementById('newClassName').value = '';
+    updateUIInfo();
+    loadClassData(newC);
+    saveLocal(false, 'Thêm lớp mới: ' + newC);
+  } else {
+    say('Lớp đã tồn tại!');
+  }
+});
+
+
+/* ----- Điểm thi ----- */
 function num(el){if(!el)return null;var t=el.textContent.trim().replace(',','.');if(t==='')return null;var v=parseFloat(t);return(isNaN(v)||v<0||v>10)?null:v}
 function round1(v){return Math.round(v*10+1e-9)/10}
 function calcAll(){
@@ -410,36 +477,50 @@ document.addEventListener('click',function(e){
   root.querySelectorAll('.hk').forEach(function(h){h.classList.toggle('active',h.id===b.dataset.hk)});
 });
 
-/* ----- việc cần làm ----- */
+
+/* ----- Việc cần làm ----- */
 function todoEl(){return document.getElementById('todo')}
 function addTodo(text){
   var li=document.createElement('li');
   li.innerHTML='<input type="checkbox" aria-label="Hoàn thành"><span></span><button type="button" aria-label="Xóa việc này">×</button>';
   li.querySelector('span').textContent=text;todoEl().appendChild(li);
 }
-if(!restored&&!todoEl().children.length){['Làm bài tập về nhà','Ôn lại bài các môn học trong ngày','Chuẩn bị sách vở cho ngày mai'].forEach(addTodo)}
 root.addEventListener('click',function(e){
-  if(e.target.id==='todoAdd'){var inp=document.getElementById('todoIn'),v=inp.value.trim();if(!v)return;addTodo(v);inp.value='';saveLocal(true);say('Đã thêm');return}
-  var b=e.target.closest('ul.todo button');if(b){b.parentNode.remove();saveLocal(true)}
+  if(e.target.id==='todoAdd'){
+    var inp=document.getElementById('todoIn'),v=inp.value.trim();if(!v)return;
+    addTodo(v);inp.value='';saveLocal(true, 'Thêm việc cần làm');say('Đã thêm');return
+  }
+  var b=e.target.closest('ul.todo button');if(b){b.parentNode.remove();saveLocal(true, 'Xóa việc cần làm')}
 });
 root.addEventListener('keydown',function(e){if(e.target.id==='todoIn'&&e.key==='Enter'){e.preventDefault();document.getElementById('todoAdd').click()}});
 root.addEventListener('change',function(e){
   var c=e.target;
-  if(c.type==='checkbox'){if(c.checked)c.setAttribute('checked','');else c.removeAttribute('checked');saveLocal(true)}
+  if(c.type==='checkbox'){if(c.checked)c.setAttribute('checked','');else c.removeAttribute('checked');saveLocal(true, 'Cập nhật việc cần làm')}
 });
 
-/* ----- đồng bộ Google Sheet ----- */
+
+/* ----- Đồng bộ & Ghi lịch sử lên Google Sheets ----- */
 var remoteTimer=null,lastUpdated='',applying=false;
-function payload(){return JSON.stringify({schema:de.dataset.schema,html:content(),palette:palette})}
-function pushRemote(){
+function payload(actionName){
+  return JSON.stringify({
+    timestamp: new Date().toLocaleString('vi-VN'),
+    action: actionName || 'Thay đổi dữ liệu',
+    student: appState.profile.name,
+    class: appState.profile.currentClass,
+    appState: appState,
+    schema: de.dataset.schema,
+    html: content()
+  });
+}
+function pushRemote(actionName){
   if(!SHEET_URL)return;
   say('Đang lưu lên Google Sheet...');
-  fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({data:payload()})})
+  fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({data:payload(actionName)})})
     .then(function(r){return r.json()})
-    .then(function(j){if(j&&j.ok){lastUpdated=String(j.updated||'');say('Đã lưu lên Google Sheet')}else say('Lưu Google Sheet chưa thành công')})
+    .then(function(j){if(j&&j.ok){lastUpdated=String(j.updated||'');say('Đã lưu lịch sử lên Google Sheet')}else say('Lưu Google Sheet chưa thành công')})
     .catch(function(){say('Không kết nối được Google Sheet')});
 }
-function scheduleRemote(){if(!SHEET_URL||applying)return;clearTimeout(remoteTimer);remoteTimer=setTimeout(pushRemote,800)}
+function scheduleRemote(actionName){if(!SHEET_URL||applying)return;clearTimeout(remoteTimer);remoteTimer=setTimeout(function(){pushRemote(actionName)},800)}
 function pullRemote(){
   if(!SHEET_URL)return;
   fetch(SHEET_URL+(SHEET_URL.indexOf('?')<0?'?':'&')+'t='+Date.now())
@@ -449,31 +530,45 @@ function pullRemote(){
       if(String(j.updated)===lastUpdated)return;
       var d;try{d=JSON.parse(j.data)}catch(e){return}
       lastUpdated=String(j.updated);
-      if(!d||d.schema!==de.dataset.schema||!d.html)return;
-      var palChanged=d.palette&&d.palette.length&&JSON.stringify(d.palette)!==JSON.stringify(palette);
-      if(d.html===content()&&!palChanged)return;
+      if(!d||d.schema!==de.dataset.schema)return;
       applying=true;
-      if(palChanged){palette=d.palette;renderPal()}
-      root.innerHTML=d.html;applyEditable();calcAll();show(true);saveLocal(true);
+      if(d.appState){
+        appState = d.appState;
+        updateUIInfo();
+      }
+      if(d.html){
+        root.innerHTML=d.html;applyEditable();calcAll();show(true);saveLocal(true, 'Nhận cập nhật từ xa');
+      }
       applying=false;say('Đã cập nhật từ Google Sheet');
     }).catch(function(){applying=false});
 }
 
-/* ----- công cụ ----- */
-renderPal();setEdit(false);calcAll();show();pullRemote();
-setInterval(function(){var a=document.activeElement;if(editing||(a&&(a.isContentEditable||a.id==='todoIn')))return;pullRemote()},30000);
+
+/* ----- Khởi tạo & Sự kiện ----- */
+updateUIInfo();setEdit(false);calcAll();show();pullRemote();
+
+
+setInterval(function(){
+  var a=document.activeElement;
+  if(editing||(a&&(a.isContentEditable||a.id==='todoIn'||a.tagName==='INPUT')))return;
+  pullRemote();
+},30000);
+
+
 document.getElementById('bEdit').addEventListener('click',function(){setEdit(!editing)});
-document.getElementById('bSave').addEventListener('click',function(){saveLocal(false);if(SHEET_URL){clearTimeout(remoteTimer);pushRemote()}});
+document.getElementById('bSave').addEventListener('click',function(){saveLocal(false, 'Lưu thủ công');if(SHEET_URL){clearTimeout(remoteTimer);pushRemote('Lưu thủ công')}});
 document.getElementById('bPrint').addEventListener('click',function(){window.print()});
 document.getElementById('bReset').addEventListener('click',function(){
-  if(!confirm('Xóa dữ liệu đã lưu (cả trên Google Sheet nếu có) và quay về nội dung gốc của file này?'))return;
+  if(!confirm('Xóa dữ liệu đã lưu và quay về nội dung gốc?'))return;
   try{localStorage.removeItem(KEY)}catch(e){}
   if(SHEET_URL){fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({data:''})}).then(function(){location.reload()},function(){location.reload()})}
   else location.reload();
 });
+
+
 document.getElementById('bDl').addEventListener('click',function(){
   var ver='v'+Date.now(),clone=de.cloneNode(true);
-  clone.setAttribute('data-version',ver);clone.setAttribute('data-palette',JSON.stringify(palette));
+  clone.setAttribute('data-version',ver);
   clone.querySelector('#content').innerHTML=content();
   clone.querySelector('body').className='';
   clone.querySelector('#msg').textContent='';
@@ -481,63 +576,27 @@ document.getElementById('bDl').addEventListener('click',function(){
   a.href=URL.createObjectURL(new Blob(['<!doctype html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'}));
   a.download='index.html';
   document.body.appendChild(a);a.click();a.remove();
-  de.dataset.version=ver;saveLocal(true);
+  de.dataset.version=ver;saveLocal(true, 'Tải file index.html');
   say('Đã tải file. Dùng file này thay cho index.html cũ');
 });
-root.addEventListener('focusin',function(e){var t=e.target.closest&&e.target.closest('td,th');if(t)last=t});
+
+
 root.addEventListener('input',function(e){
   if(e.target.closest&&e.target.closest('td.sc'))calcAll();
-  clearTimeout(timer);timer=setTimeout(function(){saveLocal(true);if(!SHEET_URL)say('Đã tự lưu')},600);
+  clearTimeout(timer);timer=setTimeout(function(){saveLocal(true, 'Chỉnh sửa nội dung')},600);
 });
+
+
 root.addEventListener('paste',function(e){
   if(!e.target.closest||!e.target.closest('[contenteditable]'))return;
   e.preventDefault();
   document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text/plain'));
 });
-/* ----- màu ô & bảng màu ----- */
-function renderPal(){
-  var sw=document.getElementById('swatches'),ed=document.getElementById('palRows');
-  sw.innerHTML='';ed.innerHTML='';
-  palette.forEach(function(p,i){
-    var b=document.createElement('button');
-    b.type='button';b.dataset.i=i;b.style.background=p.c;b.title=p.n+' '+p.c;b.setAttribute('aria-label','Màu '+p.n);
-    sw.appendChild(b);
-    var r=document.createElement('div');r.className='prow';
-    r.innerHTML='<input type="color" aria-label="Mã màu"><input type="text" class="pn" maxlength="30" aria-label="Tên màu"><code></code><button type="button" class="pd">Xóa</button>';
-    var col=r.querySelector('input[type=color]'),nm=r.querySelector('.pn'),code=r.querySelector('code');
-    col.value=p.c;nm.value=p.n;code.textContent=p.c;
-    col.addEventListener('input',function(){p.c=col.value;code.textContent=p.c;b.style.background=p.c;b.title=p.n+' '+p.c});
-    col.addEventListener('change',function(){saveLocal(true);say('Đã lưu bảng màu')});
-    nm.addEventListener('input',function(){p.n=nm.value;b.title=p.n+' '+p.c;clearTimeout(nm.t);nm.t=setTimeout(function(){saveLocal(true)},600)});
-    r.querySelector('.pd').addEventListener('click',function(){palette.splice(i,1);renderPal();saveLocal(true);say('Đã xóa màu')});
-    ed.appendChild(r);
-  });
-}
-function cellOk(){if(!last||!root.contains(last)){say('Hãy bấm chọn một ô trước');return false}return true}
-function paint(hex){last.style.backgroundColor=hex}
-document.getElementById('pal').addEventListener('mousedown',function(e){if(!e.target.closest('input'))e.preventDefault()});
-document.getElementById('swatches').addEventListener('click',function(e){
-  var b=e.target.closest('button[data-i]');if(!b||!cellOk())return;
-  paint(palette[+b.dataset.i].c);document.getElementById('colPick').value=palette[+b.dataset.i].c;saveLocal(true);say('Đã đổi màu ô');
-});
-var pick=document.getElementById('colPick');
-pick.addEventListener('input',function(){if(last&&root.contains(last))paint(pick.value)});
-pick.addEventListener('change',function(){if(!cellOk())return;paint(pick.value);saveLocal(true);say('Đã đổi màu ô')});
-document.getElementById('bColAdd').addEventListener('click',function(){
-  palette.push({n:'Màu mới',c:pick.value});renderPal();saveLocal(true);say('Đã lưu màu '+pick.value+' vào bảng màu');
-});
-document.getElementById('bColOff').addEventListener('click',function(){
-  if(!cellOk())return;last.style.removeProperty('background-color');if(!last.getAttribute('style'))last.removeAttribute('style');saveLocal(true);say('Đã bỏ màu tùy chọn của ô');
-});
-document.getElementById('bPalEd').addEventListener('click',function(){document.getElementById('palEd').classList.toggle('open')});
-document.getElementById('bPalClose').addEventListener('click',function(){document.getElementById('palEd').classList.remove('open')});
-document.getElementById('bPalNew').addEventListener('click',function(){palette.push({n:'Màu mới',c:'#ffffff'});renderPal();saveLocal(true)});
-document.getElementById('bPalReset').addEventListener('click',function(){
-  if(!confirm('Đưa bảng màu về 13 màu mặc định? Các ô đã tô màu không bị ảnh hưởng.'))return;
-  palette=DEFAULT_PAL.map(function(p){return{n:p.n,c:p.c}});renderPal();saveLocal(true);
-});
-document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveLocal(false)}});
+
+
+document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveLocal(false, 'Phím tắt Ctrl+S')}});
 })();
 </script>
+
 </body>
 </html>
