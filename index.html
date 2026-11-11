@@ -413,17 +413,22 @@ window.addEventListener('hashchange',function(){show()});
 
 
 /* ----- Quản lý profile & lớp học ----- */
-document.getElementById('btnSaveProfile').addEventListener('click', function(){
+// Ủy quyền sự kiện: nút vẫn chạy sau khi nội dung được thay từ Google Sheet / trình duyệt
+function saveProfile(){
   var name = document.getElementById('studentName').value.trim();
   var teacher = document.getElementById('teacherName').value.trim();
   if(name) appState.profile.name = name;
   appState.profile.teachers[appState.profile.currentClass] = teacher;
   updateUIInfo();
-  saveLocal(false, 'Cập nhật thông tin cá nhân');
+  saveLocal(true, 'Cập nhật thông tin cá nhân');
+  clearTimeout(remoteTimer); pushRemote('Cập nhật thông tin cá nhân');
+}
+document.addEventListener('click', function(e){
+  if(e.target.closest('#btnSaveProfile')) saveProfile();
+  else if(e.target.closest('#btnAddClass')) addClass();
 });
-
-
-document.getElementById('currentClass').addEventListener('change', function(e){
+document.addEventListener('change', function(e){
+  if(e.target.id !== 'currentClass') return;
   captureCurrentClassData();
   appState.profile.currentClass = e.target.value;
   updateUIInfo();
@@ -432,7 +437,7 @@ document.getElementById('currentClass').addEventListener('change', function(e){
 });
 
 
-document.getElementById('btnAddClass').addEventListener('click', function(){
+function addClass(){
   var newC = document.getElementById('newClassName').value.trim().toUpperCase();
   if(!newC) return;
   if(appState.profile.classList.indexOf(newC) < 0){
@@ -451,7 +456,7 @@ document.getElementById('btnAddClass').addEventListener('click', function(){
   } else {
     say('Lớp đã tồn tại!');
   }
-});
+}
 
 
 /* ----- Điểm thi ----- */
@@ -515,7 +520,7 @@ function payload(actionName){
 function pushRemote(actionName){
   if(!SHEET_URL)return;
   say('Đang lưu lên Google Sheet...');
-  fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({data:payload(actionName)})})
+  fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({data:payload(actionName),action:actionName||'Thay đổi dữ liệu',profile:appState.profile})})
     .then(function(r){return r.json()})
     .then(function(j){if(j&&j.ok){lastUpdated=String(j.updated||'');say('Đã lưu lịch sử lên Google Sheet')}else say('Lưu Google Sheet chưa thành công')})
     .catch(function(){say('Không kết nối được Google Sheet')});
@@ -532,13 +537,10 @@ function pullRemote(){
       lastUpdated=String(j.updated);
       if(!d||d.schema!==de.dataset.schema)return;
       applying=true;
-      if(d.appState){
-        appState = d.appState;
-        updateUIInfo();
-      }
-      if(d.html){
-        root.innerHTML=d.html;applyEditable();calcAll();show(true);saveLocal(true, 'Nhận cập nhật từ xa');
-      }
+      if(d.appState) appState = d.appState;
+      if(d.html){root.innerHTML=d.html;applyEditable();calcAll();show(true);}
+      updateUIInfo();   // gọi sau khi thay HTML để ô nhập và danh sách lớp hiển thị đúng
+      saveLocal(true, 'Nhận cập nhật từ xa');
       applying=false;say('Đã cập nhật từ Google Sheet');
     }).catch(function(){applying=false});
 }
