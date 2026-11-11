@@ -34,13 +34,24 @@ header.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;bo
 /* ---------- thời khóa biểu ---------- */ table.tkb{border-collapse:separate;border-spacing:4px;width:100%;min-width:900px;table-layout:fixed;color:#1f2937} table.tkb th,table.tkb td{border-radius:8px;text-align:center;vertical-align:middle;padding:4px 6px;line-height:1.25;height:62px} table.tkb th{background:#1e3a5f;color:#fff;font-size:14px;font-weight:700;height:34px} table.tkb td.sess{width:34px;padding:0;font-weight:800;font-size:13px;letter-spacing:3px;color:#fff} table.tkb td.sess span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto} table.tkb td.sang{background:#f59e0b} table.tkb td.chieu{background:#7c5cbf} table.tkb td.tiet{background:#eef2f7;font-weight:700;font-size:13px} table.tkb td.tiet small{display:block;font-weight:500;font-size:11.5px;color:#475569;margin-top:2px} table.tkb td.m b{display:block;font-size:13px;font-weight:700} table.tkb td.m span{display:block;font-size:11.5px;margin-top:2px;color:#374151} td.toan{background:#d6e8ff}td.van{background:#ffd9d9}td.anh{background:#ffe3c2}td.khtn{background:#d8f1d8}td.su{background:#ecdfca} td.hdtn{background:#e6d7f6}td.gdtc{background:#cdf0ea}td.nt{background:#fbd7e8}td.tin{background:#dbe0ff}td.cn{background:#e3e4dc}td.gd{background:#dde4ee} td.ht{background:#fff0a3;border:2px dashed #b45309} td.ht i{display:inline-block;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.5px;background:#b45309;color:#fff;border-radius:99px;padding:1px 8px;margin-bottom:4px} table.tkb td.nghi{background:#f1f3f5;color:#9aa3ad;font-size:13px;font-weight:600} table.tkb td.nghi span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto;letter-spacing:4px} table.tkb td.trong{background:#fafbfc;color:#c3c9d0;font-size:13px} .note{font-size:12.5px;color:var(--mute);margin:10px 4px 0}
 /* ---------- điểm thi ---------- */ .seg{display:inline-flex;background:#e2e8f0;border-radius:10px;padding:3px;margin-bottom:14px} .seg button{font:inherit;font-weight:700;font-size:14px;border:0;background:none;padding:7px 18px;border-radius:8px;cursor:pointer;color:#475569} .seg button.on{background:var(--navy);color:#fff} .hk{display:none} .hk.active{display:block} table.st{border-collapse:collapse;width:100%;min-width:640px;font-size:14px} table.st th{background:var(--navy);color:#fff;padding:9px 8px;font-weight:700;text-align:center;border:1px solid #fff3} table.st td{border:1px solid var(--line);padding:8px;text-align:center;background:#fff} table.st td.nm{text-align:left;font-weight:600;background:#f8fafc} table.st td.sc{color:#111} table.st td.avg{font-weight:800;color:var(--navy);background:#eef4ff} table.st tr.sum td{background:#fff7e0;font-weight:800;border-top:2px solid var(--amber)} table.st td.sc:empty::before{content:"–";color:#c0c8d2}
 /* ---------- kế hoạch ---------- */ .plan ul.goals{margin:0;padding-left:20px} .plan ul.goals li{margin:4px 0} table.pl{border-collapse:collapse;width:100%;font-size:14px} table.pl th{text-align:left;background:#eef2f7;padding:8px 10px;border:1px solid var(--line);color:var(--navy)} table.pl td{padding:8px 10px;border:1px solid var(--line);vertical-align:top} table.pl tr.extra td:first-child{font-weight:700} ul.todo{list-style:none;margin:0 0 10px;padding:0} ul.todo li{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line)} ul.todo li input[type=checkbox]{width:18px;height:18px;accent-color:var(--navy);flex:none} ul.todo li span{flex:1} ul.todo li input:checked+span{text-decoration:line-through;color:#94a3b8} ul.todo li button{border:0;background:none;color:#94a3b8;font-size:18px;cursor:pointer;line-height:1} ul.todo li button:hover{color:#dc2626} .add{display:flex;gap:8px} .add input{flex:1;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px} .add button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:8px 16px;background:var(--navy);color:#fff;cursor:pointer}
-/* ---------- chế độ sửa ---------- */ body.editing [data-e]:hover,body.editing .tkb td:hover,body.editing .tkb th:hover,body.editing td.nm:hover{outline:2px dotted var(--amber);outline-offset:-2px;cursor:text} [contenteditable]:focus{outline:2px solid #2563eb !important;outline-offset:-2px} td.sc[contenteditable]{cursor:text} footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px} @media (max-width:640px){.hero h1{font-size:26px}.hero{padding:24px 18px}h2.title{font-size:22px}} @media print{ header.top,footer,.seg,.add,ul.todo button{display:none} body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} main{padding:0} .card{border:0;padding:0} .scroll{overflow:visible} table.tkb{min-width:0} section.pg.active .hk{display:block} @page{size:A4 landscape;margin:10mm} } </style>
+/* ---------- chế độ sửa ---------- */ body.editing [data-e]:hover,body.editing .tkb td:hover,body.editing .tkb th:hover,body.editing td.nm:hover{outline:2px dotted var(--amber);outline-offset:-2px;cursor:text} [contenteditable]:focus{outline:2px solid #2563eb !important;outline-offset:-2px} td.sc[contenteditable]{cursor:text} footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 16px 28px} @media (max-width:640px){.hero h1{font-size:26px}.hero{padding:24px 18px}h2.title{font-size:22px}} @media print{ header.top,footer,.seg,.add,ul.todo button{display:none} body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} main{padding:0} .card{border:0;padding:0} .scroll{overflow:visible} table.tkb{min-width:0} section.pg.active .hk{display:block} @page{size:A4 landscape;margin:10mm} } /* ---------- quản lý học sinh ---------- */
+.sw{font:inherit;font-weight:600;border:0;border-radius:6px;padding:5px 8px;background:#fff;color:var(--navy);max-width:220px}
+table.hsl{border-collapse:collapse;width:100%;font-size:14px}
+table.hsl th{text-align:left;background:#eef2f7;padding:8px 10px;border:1px solid var(--line);color:var(--navy)}
+table.hsl td{padding:8px 10px;border:1px solid var(--line);vertical-align:middle}
+table.hsl tr.me td{background:#fff7e6;font-weight:600}
+table.hsl button{font:inherit;font-size:13px;border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 10px;cursor:pointer;margin:2px}
+table.hsl button.del{color:#b91c1c}
+table.hsl button:disabled{opacity:.4;cursor:default}
+.hs-search{width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;margin-bottom:10px}
+</style>
 </head>
 <body class="">
 <header class="top">
 <div class="nav">
 <a class="brand" href="#home" id="topBrand"><b>THCS TIÊN DU</b><span id="subBrand">Học sinh: Nguyễn Doãn Việt Anh · Lớp 6B</span></a>
 <ul>
+<li><a href="#hs" data-p="hs">Học sinh</a></li>
 <li><a href="#profile" data-p="profile">Thông tin cá nhân</a></li>
 <li><a href="#tkb" data-p="tkb">Thời khóa biểu</a></li>
 <li><a href="#diem" data-p="diem" class="cur">Điểm thi</a></li>
@@ -48,6 +59,7 @@ header.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;bo
 </ul>
 </div>
 <div class="tools"><div>
+<label>Học sinh: <select id="studentSwitch" class="sw" aria-label="Chọn học sinh"></select></label>
 <button type="button" id="bEdit" class="on">Tắt chế độ sửa</button>
 <span class="edit-tools">
   <button type="button" id="bSave">Lưu ngay</button>
@@ -59,6 +71,27 @@ header.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;bo
 </div></div>
 </header>
 
+<template id="tplHs">
+<section class="pg" id="hs">
+<h2 class="title">Quản lý học sinh</h2>
+<p class="sub">Mỗi học sinh có thông tin, danh sách lớp, thời khóa biểu, điểm thi và kế hoạch học tập riêng.</p>
+<div class="grid2">
+  <div class="card">
+    <h3>Danh sách học sinh (<span id="hsCount">0</span>)</h3>
+    <input type="search" id="hsSearch" class="hs-search" placeholder="Tìm theo tên hoặc lớp..." aria-label="Tìm học sinh">
+    <div class="scroll"><table class="hsl"><thead><tr><th>#</th><th>Họ và tên</th><th>Lớp</th><th>GVCN</th><th></th></tr></thead><tbody id="hsList"></tbody></table></div>
+  </div>
+  <div class="card">
+    <h3>Thêm học sinh mới</h3>
+    <div class="form-group"><label for="hsName">Họ và tên:</label><input type="text" id="hsName" placeholder="Nhập họ tên học sinh..."></div>
+    <div class="form-group"><label for="hsClass">Lớp:</label><input type="text" id="hsClass" placeholder="Ví dụ: 6B"></div>
+    <div class="form-group"><label for="hsTeacher">GVCN:</label><input type="text" id="hsTeacher" placeholder="Tên cô/thầy chủ nhiệm..."></div>
+    <button type="button" id="btnAddStudent" class="btn-primary">Thêm học sinh</button>
+    <p style="font-size:13px;color:var(--mute)">Học sinh mới dùng thời khóa biểu của học sinh đang chọn làm mẫu; điểm thi và việc cần làm để trống.</p>
+  </div>
+</div>
+</section>
+</template>
 <main id="content">
 
 <!-- ================= THÔNG TIN CÁ NHÂN ================= -->
@@ -112,6 +145,7 @@ header.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;bo
 </div>
 </div>
 <nav class="menu">
+<a href="#hs"><i>★</i><h3>Quản lý học sinh</h3><p>Thêm, chuyển đổi, đổi tên và xóa học sinh.</p></a>
 <a href="#profile"><i>0</i><h3>Thông tin cá nhân</h3><p>Cài đặt tên học sinh, giáo viên chủ nhiệm và chuyển đổi/thêm lớp học.</p></a>
 <a href="#tkb"><i>1</i><h3>Thời khóa biểu</h3><p>Lịch học chính khóa, giờ vào lớp, giờ tan và lịch học thêm.</p></a>
 <a href="#diem"><i>2</i><h3>Điểm thi</h3><p>Bảng điểm từng môn theo học kỳ, tự tính điểm trung bình.</p></a>
@@ -335,6 +369,7 @@ function updateUIInfo(){
     if(c === st.currentClass) opt.selected = true;
     sel.appendChild(opt);
   });
+  renderStudents();
 }
 
 
@@ -402,7 +437,7 @@ try{
 
 
 /* ----- Điều hướng ----- */
-var pages=['home','profile','tkb','diem','kh'];
+var pages=['home','hs','profile','tkb','diem','kh'];
 function show(keep){
   var id=(location.hash||'#home').slice(1);if(pages.indexOf(id)<0)id='home';
   root.querySelectorAll('section.pg').forEach(function(s){s.classList.toggle('active',s.id===id)});
@@ -457,6 +492,113 @@ function addClass(){
     say('Lớp đã tồn tại!');
   }
 }
+
+
+/* ----- Quản lý học sinh -----
+   appState.students[id] chứa dữ liệu đầy đủ (profile, classData, planHtml) của các học sinh KHÔNG đang chọn;
+   học sinh đang chọn chỉ lưu bản tóm tắt, dữ liệu thật nằm ở appState.profile/classData/planHtml (tránh lưu trùng). */
+function ensureStudents(){
+  if(!appState.students){appState.students={};}
+  if(!appState.currentStudent||!appState.students[appState.currentStudent]){
+    var id='s'+Date.now().toString(36);
+    appState.currentStudent=id;appState.students[id]={};
+  }
+}
+function ensureHsPage(){
+  if(document.getElementById('hs'))return;
+  var t=document.getElementById('tplHs').content.cloneNode(true);
+  var home=document.getElementById('home');
+  root.insertBefore(t,home||root.firstChild);
+}
+function studentSummary(id){
+  if(id===appState.currentStudent){var p=appState.profile;return{name:p.name,cls:p.currentClass,teacher:p.teachers[p.currentClass]||''}}
+  var p2=(appState.students[id]||{}).profile||{teachers:{}};
+  return{name:p2.name||'(chưa đặt tên)',cls:p2.currentClass||'',teacher:(p2.teachers||{})[p2.currentClass]||''};
+}
+function sortedIds(){
+  return Object.keys(appState.students).sort(function(a,b){return studentSummary(a).name.localeCompare(studentSummary(b).name,'vi')});
+}
+function renderStudents(){
+  ensureStudents();ensureHsPage();
+  var ids=sortedIds(),q=(document.getElementById('hsSearch').value||'').trim().toLowerCase();
+  var sw=document.getElementById('studentSwitch');sw.innerHTML='';
+  ids.forEach(function(id){var o=document.createElement('option'),s=studentSummary(id);o.value=id;o.textContent=s.name+(s.cls?' – '+s.cls:'');o.selected=id===appState.currentStudent;sw.appendChild(o)});
+  document.getElementById('hsCount').textContent=ids.length;
+  var tb=document.getElementById('hsList');tb.innerHTML='';
+  ids.filter(function(id){var s=studentSummary(id);return !q||(s.name+' '+s.cls).toLowerCase().indexOf(q)>=0})
+    .forEach(function(id,i){
+      var s=studentSummary(id),me=id===appState.currentStudent,tr=document.createElement('tr');
+      if(me)tr.className='me';
+      tr.innerHTML='<td></td><td></td><td></td><td></td><td><button type="button" data-act="pick">'+(me?'Đang chọn':'Chọn')+'</button><button type="button" data-act="ren">Đổi tên</button><button type="button" class="del" data-act="del">Xóa</button></td>';
+      var td=tr.children;td[0].textContent=i+1;td[1].textContent=s.name;td[2].textContent=s.cls;td[3].textContent=s.teacher;
+      tr.dataset.id=id;if(me)td[4].firstChild.disabled=true;
+      tb.appendChild(tr);
+    });
+}
+function stashCurrent(){
+  captureCurrentClassData();
+  appState.students[appState.currentStudent]={profile:appState.profile,classData:appState.classData,planHtml:appState.planHtml};
+}
+function activate(id){
+  var d=appState.students[id];
+  appState.currentStudent=id;
+  appState.profile=d.profile;appState.classData=d.classData;appState.planHtml=d.planHtml||'';
+  appState.students[id]={};
+  updateUIInfo();loadClassData(appState.profile.currentClass);
+}
+function switchStudent(id){
+  if(!id||id===appState.currentStudent||!appState.students[id])return;
+  stashCurrent();activate(id);
+  saveLocal(false,'Chuyển sang học sinh '+appState.profile.name);
+}
+function blankDiem(html){
+  var d=document.createElement('div');d.innerHTML=html;
+  d.querySelectorAll('td.sc').forEach(function(c){c.textContent=''});
+  d.querySelectorAll('.avg,.overall').forEach(function(c){c.textContent='–'});
+  return d.innerHTML;
+}
+function addStudent(){
+  var name=document.getElementById('hsName').value.trim(),cls=document.getElementById('hsClass').value.trim().toUpperCase(),tc=document.getElementById('hsTeacher').value.trim();
+  if(!name){say('Hãy nhập họ tên học sinh');document.getElementById('hsName').focus();return}
+  if(!cls)cls=appState.profile.currentClass;
+  stashCurrent();
+  var kh=document.createElement('div');kh.innerHTML=document.getElementById('kh').innerHTML;
+  kh.querySelectorAll('#todo li').forEach(function(li){li.remove()});
+  var id='s'+Date.now().toString(36),teachers={};teachers[cls]=tc;
+  var cd={};cd[cls]={tkbHtml:document.getElementById('tkb').innerHTML,diemHtml:blankDiem(document.getElementById('diem').innerHTML)};
+  appState.students[id]={profile:{name:name,currentClass:cls,classList:[cls],teachers:teachers},classData:cd,planHtml:kh.innerHTML};
+  ['hsName','hsClass','hsTeacher'].forEach(function(x){document.getElementById(x).value=''});
+  activate(id);
+  saveLocal(false,'Thêm học sinh: '+name);
+}
+function renameStudent(id){
+  var s=studentSummary(id),n=prompt('Tên mới cho học sinh:',s.name);
+  if(!n||!(n=n.trim()))return;
+  if(id===appState.currentStudent)appState.profile.name=n;else appState.students[id].profile.name=n;
+  updateUIInfo();saveLocal(false,'Đổi tên học sinh: '+s.name+' → '+n);
+}
+function deleteStudent(id){
+  var ids=Object.keys(appState.students);
+  if(ids.length<2){say('Phải còn ít nhất 1 học sinh');return}
+  var s=studentSummary(id);
+  if(!confirm('Xóa học sinh "'+s.name+'" cùng toàn bộ thời khóa biểu, điểm thi và kế hoạch?'))return;
+  if(id===appState.currentStudent){
+    var next=sortedIds().filter(function(x){return x!==id})[0];
+    delete appState.students[id];activate(next);
+  }else{delete appState.students[id];renderStudents()}
+  saveLocal(false,'Xóa học sinh: '+s.name);
+}
+document.addEventListener('click',function(e){
+  if(e.target.closest('#btnAddStudent')){addStudent();return}
+  var b=e.target.closest('#hsList button');if(!b)return;
+  var id=b.closest('tr').dataset.id;
+  if(b.dataset.act==='pick')switchStudent(id);
+  else if(b.dataset.act==='ren')renameStudent(id);
+  else if(b.dataset.act==='del')deleteStudent(id);
+});
+document.addEventListener('input',function(e){if(e.target.id==='hsSearch')renderStudents()});
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&/^hs(Name|Class|Teacher)$/.test(e.target.id)){e.preventDefault();addStudent()}});
+document.getElementById('studentSwitch').addEventListener('change',function(e){switchStudent(e.target.value)});
 
 
 /* ----- Điểm thi ----- */
@@ -540,6 +682,7 @@ function pullRemote(){
       if(d.appState) appState = d.appState;
       if(d.html){root.innerHTML=d.html;applyEditable();calcAll();show(true);}
       updateUIInfo();   // gọi sau khi thay HTML để ô nhập và danh sách lớp hiển thị đúng
+      show(true);
       saveLocal(true, 'Nhận cập nhật từ xa');
       applying=false;say('Đã cập nhật từ Google Sheet');
     }).catch(function(){applying=false});
